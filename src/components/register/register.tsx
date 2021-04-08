@@ -225,7 +225,7 @@ function Register() {
           />
           <label className="form-check-label" htmlFor="flexCheckChecked">
             Al iniciar sesión, estás aceptando los{" "}
-            <a href="">Terminos y condiciones</a>
+            <a >Terminos y condiciones</a>
           </label>
         </div>
         <div className="text-danger text-center">
