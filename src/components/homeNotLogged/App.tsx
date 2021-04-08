@@ -56,7 +56,7 @@ function App() {
           <i className="fas fa-graduation-cap text-main"></i>
           <h5 className="fw-bold">Certificación</h5>
           <p>
-            Certificación directa de <a href="">Cambridge certificates</a>,
+            Certificación directa de <a >Cambridge certificates</a>,
             validados en todo el múndo
           </p>
         </div>

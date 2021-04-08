@@ -54,12 +54,12 @@ function HeaderComponent() {
             </h6>
           </Link>
           <h6 className=" h4 py-3">
-            <a
-              href="https://api.whatsapp.com/send?phone=5491123628091"
+            {/* <a
+              hre="https://api.whatsapp.com/send?phone=5491123628091"
               className=""
             >
               Contáctanos
-            </a>
+            </a> */}
           </h6>
           <Link to="">
             <h6
