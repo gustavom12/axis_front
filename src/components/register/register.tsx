@@ -239,9 +239,9 @@ function Register() {
         <button type="submit" className="fw-bold mt-4 w-75 btn btn-main">
           Iniciar Sesión
         </button>
-        <a
-          style={{ height: 0 }}
-          className="text-mini p-absolute mt-3 h-0"
+        <div
+          style={{ height: 0, cursor: 'pointer' }}
+          className="text-mini p-absolute mt-3 h-0 text-primary"
           onClick={() => {
             registerTeacher
               ? setRegisterTeacher(false)
@@ -251,7 +251,7 @@ function Register() {
           {!registerTeacher
             ? "Registrarte como profesor"
             : "Registrate como alumno"}
-        </a>
+        </div>
       </form>
       <div className="login-right mx-auto flex flex-column ">
         <img src={book} alt="" />
