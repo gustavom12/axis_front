@@ -1,0 +1,211 @@
+@import ../../index.sass
+// @import url('https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@1,700&display=swap')
+.navbar-toggler
+    display: flex
+    justify-content: center
+    align-items: center
+    border-color: #00000000 !important
+    color: #00000000 !important
+
+.collapse
+  border-bottom: 1px solid $main
+  h6
+    cursor: pointer
+    border-top: 1px solid $main
+    transition: all linear 0.3s
+    a
+      transition: all linear 0.3s
+    a:hover
+      transition: all linear 0.3s
+      color: $main !important
+  h6:hover
+      transition: all linear 0.3s
+      color: $main !important
+
+
+.navbar
+  padding: 5px 40px
+  .navbar-toggler
+    display: none
+  h1
+    position: relative
+    top: 3px
+    // font-family: 'Volkhov', serif
+  a.mr-auto
+    margin-right: auto !important
+  img
+    width: 50px
+    height: 50px
+    cursor: pointer
+    margin-right: 15px
+    position: relative
+    top: 4px
+  .btn
+    h6
+      margin-bottom: 0.3rem
+      i
+        margin-right: 5px
+  .btn-main
+    margin-right: 10px
+  .btn-blue
+    a
+      transition: all 0.3s linear
+      color: #fff
+  .btn-blue:hover
+    a
+      color: $primary
+      transition: all 0.3s linear
+  .points
+    height: 23px
+    color: $main
+    font-weight: 600
+    font-size: 16px
+    margin-right: 20px
+    img
+      border: 2px solid $main
+      border-radius: 50%
+  i
+    font-size: 25px
+    margin-right: 15px
+    color: $darkmain
+    cursor: pointer
+    position: relative
+    top: -5px
+  .options
+    color: white
+    position: absolute
+    top: 65px
+    right: 15px
+    padding: 10px 10px
+    border-radius: 3px
+    cursor: pointer
+    z-index: 50
+    h6
+      font-size: 13px
+    .recargar
+      border-bottom: 1px solid $darkmain
+      padding-bottom: 13px
+
+@media( min-width: 920px)
+  .navbar
+    padding: 0 60px
+
+
+@media( max-width: 900px)
+  .navbar
+    .navbar-toggler
+      display: block
+@media (max-width: 690px)
+  .login-register
+    position: relative
+  .navbar
+    padding: 5px 10px
+    .underlineHover
+      display: none
+    .btn-blue
+      padding: 5px 7px
+
+    .logo
+      display: none
+    .btn
+      h6
+        font-size: 12px !important
+
+#nav-icon2
+    width: 40px
+    height: 40px
+    position: relative
+    margin-right: 5px
+    top: 5px
+#nav-icon2 span
+  display: block
+  position: absolute
+  height: 4px
+  width: 19px
+  background: $primary
+  opacity: 1
+  -webkit-transform: rotate(0deg)
+  -moz-transform: rotate(0deg)
+  -o-transform: rotate(0deg)
+  transform: rotate(0deg)
+  -webkit-transition: .40s ease-in-out
+  -moz-transition: .40s ease-in-out
+  -o-transition: .40s ease-in-out
+  transition: .40s ease-in-out
+
+
+#nav-icon2 span:nth-child(even)
+  left: 19px
+  border-radius: 0 9px 9px 0
+
+
+#nav-icon2 span:nth-child(odd)
+  left: 0px
+  border-radius: 9px 0 0 9px
+
+
+#nav-icon2 span:nth-child(1), #nav-icon2 span:nth-child(2)
+  top: 0px
+
+
+#nav-icon2 span:nth-child(3), #nav-icon2 span:nth-child(4)
+  top: 12px
+
+
+#nav-icon2 span:nth-child(5), #nav-icon2 span:nth-child(6)
+  top: 24px
+
+
+#nav-icon2.open span:nth-child(1),#nav-icon2.open span:nth-child(6)
+  -webkit-transform: rotate(45deg)
+  -moz-transform: rotate(45deg)
+  -o-transform: rotate(45deg)
+  transform: rotate(45deg)
+
+
+#nav-icon2.open span:nth-child(2),#nav-icon2.open span:nth-child(5)
+  -webkit-transform: rotate(-45deg)
+  -moz-transform: rotate(-45deg)
+  -o-transform: rotate(-45deg)
+  transform: rotate(-45deg)
+
+
+#nav-icon2.open span:nth-child(1)
+  left: 5px
+  top: 7px
+
+
+#nav-icon2.open span:nth-child(2)
+  left: calc(31px - 5px)
+  top: 7px
+
+
+#nav-icon2.open span:nth-child(3)
+  left: -19px
+  opacity: 0
+
+
+#nav-icon2.open span:nth-child(4)
+  left: 51%
+  top: 37%
+  border-radius: 0
+  border: #d3531a 1px solid
+  width: 10px
+  height: 10px
+  opacity: 1
+//   -webkit-transform: rotate(-45deg)
+//   -moz-transform: rotate(-45deg)
+//   -o-transform: rotate(-45deg)
+//   transform: rotate(-45deg)
+
+
+
+#nav-icon2.open span:nth-child(5)
+  left: 5px
+  top: 29px
+
+
+#nav-icon2.open span:nth-child(6)
+  left: calc(31px - 5px)
+  top: 29px
+  width: 19px
