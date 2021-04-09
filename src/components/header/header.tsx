@@ -26,7 +26,7 @@ function HeaderComponent() {
         id="navbarToggleExternalContent"
       >
         <div className="text-center">
-          <Link to="/mis_videos">
+          <Link to="/register">
             <h6
               className=" h4 py-3"
               // data-bs-toggle="collapse"
@@ -36,7 +36,7 @@ function HeaderComponent() {
               // aria-label="Toggle navigation"
               // onClick={toggle("#nav-icon2")}
             >
-              Mis videos
+              Register
             </h6>
           </Link>
           <Link to="">
@@ -52,15 +52,7 @@ function HeaderComponent() {
               Home
             </h6>
           </Link>
-          <h6 className=" h4 py-3">
-            {/* <a
-              hre="https://api.whatsapp.com/send?phone=5491123628091"
-              className=""
-            >
-              Contáctanos
-            </a> */}
-          </h6>
-          <Link to="">
+          <Link to="/login">
             <h6
               className=" h4 py-3"
               //desabilitado por react build problems
@@ -71,7 +63,7 @@ function HeaderComponent() {
               // aria-label="Toggle navigation"
               // onClick={toggle("#nav-icon2")}
             >
-              Acerca de Nosotros
+              Login
             </h6>
           </Link>
         </div>
