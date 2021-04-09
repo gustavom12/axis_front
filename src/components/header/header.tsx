@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./header.sass";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,7 +14,6 @@ function HeaderComponent() {
   };
   const dispatch = useDispatch();
   useEffect(() => {
-    if (user.email) return;
     const getX = () => {
       dispatch(GetUser());
     };
@@ -30,12 +29,12 @@ function HeaderComponent() {
           <Link to="/mis_videos">
             <h6
               className=" h4 py-3"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarToggleExternalContent"
-              aria-controls="navbarToggleExternalContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-              onClick={toggle("#nav-icon2")}
+              // data-bs-toggle="collapse"
+              // data-bs-target="#navbarToggleExternalContent"
+              // aria-controls="navbarToggleExternalContent"
+              // aria-expanded="false"
+              // aria-label="Toggle navigation"
+              // onClick={toggle("#nav-icon2")}
             >
               Mis videos
             </h6>
@@ -43,12 +42,12 @@ function HeaderComponent() {
           <Link to="">
             <h6
               className=" h4 py-3"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarToggleExternalContent"
-              aria-controls="navbarToggleExternalContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-              onClick={toggle("#nav-icon2")}
+              // data-bs-toggle="collapse"
+              // data-bs-target="#navbarToggleExternalContent"
+              // aria-controls="navbarToggleExternalContent"
+              // aria-expanded="false"
+              // aria-label="Toggle navigation"
+              // onClick={toggle("#nav-icon2")}
             >
               Home
             </h6>
@@ -64,12 +63,13 @@ function HeaderComponent() {
           <Link to="">
             <h6
               className=" h4 py-3"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarToggleExternalContent"
-              aria-controls="navbarToggleExternalContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-              onClick={toggle("#nav-icon2")}
+              //desabilitado por react build problems
+              // data-bs-toggle="collapse"
+              // data-bs-target="#navbarToggleExternalContent"
+              // aria-controls="navbarToggleExternalContent"
+              // aria-expanded="false"
+              // aria-label="Toggle navigation"
+              // onClick={toggle("#nav-icon2")}
             >
               Acerca de Nosotros
             </h6>

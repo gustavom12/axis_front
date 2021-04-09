@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useCallback } from "react";
 import "./login.sass";
 import Loader from "../loader/loader";
 import { useForm } from "react-hook-form";
@@ -16,12 +16,12 @@ type Inputs = {
 
 function Login() {
   const dispatch = useDispatch();
-  const { register, handleSubmit, errors } = useForm<Inputs>();
+  const stableDispatch = useCallback(dispatch, [dispatch])
+  const { register, handleSubmit } = useForm<Inputs>();
   const [doLogin, { data, error, loading }] = useLazyQuery(
     UserQueries.LOGIN
   );
   const [inputs, setInputs] = useState({ email: "", ppssww: "" });
-  const [teacher, setTeacher] = useState(false)
   const [wrongPassword, setWrongPassword] = useState("")
   useEffect(() => {
     document.querySelector("nav")?.classList.add("d-none");
@@ -48,7 +48,7 @@ function Login() {
       };
       localStorage.setItem("_us", JSON.stringify(user));
       const getX = () => {
-        dispatch(GetUser());
+        stableDispatch(GetUser());
       };
       getX();
       document.location.pathname = "/home";
@@ -56,7 +56,7 @@ function Login() {
       setWrongPassword("La contrasela es incorrecta, vuelve a intentarlo")
       setTimeout(() =>{setWrongPassword("")},3500)
     }
-  }, [inputs]);
+  }, [inputs,data,stableDispatch]);
   return (
     <div className="login d-flex">
       <i className="far fa-dot-circle"></i>

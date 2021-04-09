@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import "./createhw.sass";
 import choices from "./choices.svg";
 import conversation from "./conversation.svg";

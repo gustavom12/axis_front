@@ -1,9 +1,7 @@
-/* tslint:disable:no-unused-variable */
-import React,{useEffect} from "react";
+import React,{useEffect,useRef} from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./App.sass";
 import soapimg from "./soap.svg"
-import teachingImg from "./training.svg"
 import { useDispatch, useSelector } from "react-redux";
 import { GetUser } from "../../redux/userDuck";
 
@@ -11,6 +9,7 @@ function App() {
   const dispatch = useDispatch();
   const user = useSelector((store: any) => store.user.user);
   const history = useHistory()
+  const historyref = useRef(history)
   useEffect(() => {
     const getX = () => {
       dispatch(GetUser());
@@ -19,7 +18,7 @@ function App() {
   }, [dispatch]);
   useEffect(() => {
     if(user.email){
-      history.push("/home")
+      historyref.current.push("/home")
   }},[user])
   return (
     <>
@@ -32,7 +31,7 @@ function App() {
         <div className="md-none halfcircle"></div>
         <div className="homeLeft flex flex-column w-50">
           <h2 className="title mr-auto">
-            Bienvenido a <h3 className="axis fs-1 fw-bold d-inline ">AXIS</h3>!
+            Bienvenido a <span className="axis fs-1 fw-bold d-inline ">AXIS</span>!
           </h2>
           <p className="description mt-2">
             Años en enseñanza de Inglés de una forma profesional, Efectiva y
@@ -46,8 +45,8 @@ function App() {
           </Link>
         </div>
         <div className="homeRight md-none flex w-50">
-          <img src="https://i.ibb.co/yNqZCTF/image.png" alt="image" className="img1"/>
-          <img src="https://i.ibb.co/YT9SSw2/x2.jpg" className="img2" alt=""/>
+          <img src="https://i.ibb.co/yNqZCTF/image.png" className="img1" alt="englishOne"/>
+          <img src="https://i.ibb.co/YT9SSw2/x2.jpg" className="img2" alt="englishTwo"/>
         </div>
       </div>
       {/* -------------------- ICONOS ---------------------*/}
@@ -56,7 +55,7 @@ function App() {
           <i className="fas fa-graduation-cap text-main"></i>
           <h5 className="fw-bold">Certificación</h5>
           <p>
-            Certificación directa de <a >Cambridge certificates</a>,
+            Certificación directa de <span className="text-primary" >Cambridge certificates</span>,
             validados en todo el múndo
           </p>
         </div>
