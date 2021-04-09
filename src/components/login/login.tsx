@@ -8,6 +8,7 @@ import UserQueries from "../../graphqueries/users";
 import { decrypt } from "../../customhooks/encrypt";
 import { useDispatch } from "react-redux";
 import { GetUser } from "../../redux/userDuck";
+import { useRef } from "react";
 
 type Inputs = {
   email: string;
@@ -31,16 +32,18 @@ function Login() {
   }, []);
 
   const onSubmit = (input: Inputs) => {
+    setWrongPassword("")
     doLogin({ variables: { email: input.email } })
+    setInputs(input)
     //lazy query is not a promise, so set time out is the only way to await data change
-    setTimeout(() => {
-      setInputs(input)
-    },1400)
+    // setTimeout(() => {
+    //
+    // },1400)
   };
   useEffect(() => {
     //codes runs after "doLogin"
     if (!data) return;
-    console.log(data,decrypt(data.Login.ppssww),inputs.ppssww);
+    console.log({data,decrypt: decrypt(data.Login.ppssww),input: inputs.ppssww});
     if (decrypt(data.Login.ppssww) === inputs.ppssww) {
       const user = {
         email: data.Login.email,
@@ -54,7 +57,6 @@ function Login() {
       document.location.pathname = "/home";
       }else{
       setWrongPassword("La contrasela es incorrecta, vuelve a intentarlo")
-      setTimeout(() =>{setWrongPassword("")},3500)
     }
   }, [inputs,data,stableDispatch]);
   return (
