@@ -10,6 +10,7 @@ function App() {
   const user = useSelector((store: any) => store.user.user);
   const history = useHistory()
   const historyref = useRef(history)
+  console.log(process.env.REACT_APP_URL)
   useEffect(() => {
     const getX = () => {
       dispatch(GetUser());
