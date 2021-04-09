@@ -9,11 +9,11 @@ import ConfigHW from "./config/configHW";
 
 function CreateHW(props:any) {
   const pathname:string = props.location.pathname
-  const user = useSelector((store: any) => store.user.user);
-  const [config, setConfig] = useState({
-    cursos:[],
-    fecha_de_entrega: 0
-  })
+  // const user = useSelector((store: any) => store.user.user);
+  // const [config, setConfig] = useState({
+  //   cursos:[],
+  //   fecha_de_entrega: 0
+  // })
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (input: any) => {
     console.log({errors})
