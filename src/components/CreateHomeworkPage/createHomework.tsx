@@ -1,8 +1,8 @@
-import React,{useState,} from "react";
+// import React,{useState,} from "react";
 import { useForm } from "react-hook-form";
 // import TextHover from "../a_mini_components/textOnHover";
 import choices from "../homeLogged/teacherHome/CreateHW/choices.svg";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import MultipleChoicePage from "./multipleChoice/multipleChoicePage";
 import "./createHomework.sass"
 import ConfigHW from "./config/configHW";
