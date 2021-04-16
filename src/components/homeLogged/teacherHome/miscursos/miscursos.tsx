@@ -20,8 +20,8 @@ function Miscursos ({cursos}:{cursos:[any]}){
           {cursos?.map((curso:any, i:any)=>
             <div key={i} className="row curso pt-2 w-100 flex">
               <h6 className="col mx-auto ">{curso.name}</h6>
-              <h6 className="col mx-auto ">{curso.Students.length}</h6>
-              <h6 className="col mx-auto "> {curso.homeworks.length} </h6>
+              <h6 className="col mx-auto ">{curso?.Students?.length}</h6>
+              <h6 className="col mx-auto "> {curso?.homeworks?.length} </h6>
               <div className="col ">
               <button className="btn btn-blue mb-auto col w-75">Ver más</button>
               </div>
