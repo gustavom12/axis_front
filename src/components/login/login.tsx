@@ -8,7 +8,6 @@ import UserQueries from "../../graphqueries/users";
 import { decrypt } from "../../customhooks/encrypt";
 import { useDispatch } from "react-redux";
 import { GetUser } from "../../redux/userDuck";
-import { useRef } from "react";
 
 type Inputs = {
   email: string;

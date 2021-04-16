@@ -11,6 +11,15 @@ const CoursesQueries = {
       }
     }
   `,
+  GET_COURSES_BY_IDS: gql`
+    query($ids: [ID!]!) {
+      getCoursesById(ids: $ids) {
+        Students
+        homeworks
+        Teachers
+      }
+    }
+  `,
 };
 
 export default CoursesQueries;

@@ -2,12 +2,11 @@ import React, { useRef } from "react";
 import "./createhw.sass";
 import choices from "./choices.svg";
 import conversation from "./conversation.svg";
-import TextHover from "../../../a_mini_components/textOnHover";
+import TextHover from "../a_mini_components/textOnHover";
 import { Link } from "react-router-dom";
 
 function CreateHW() {
   const toggleDiv = useRef(null);
-
   return (
     <>
       {/* <i className="mx-auto fas fa-plus" onClick={()=>{
