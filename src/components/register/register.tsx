@@ -13,7 +13,7 @@ import { GetUser } from "../../redux/userDuck";
 type Inputs = {
   email: string;
   ppssww: string;
-  curso: string;
+  course: string;
   profesor: string;
   fullname: string;
   key: string;
@@ -75,7 +75,7 @@ function Register() {
       variables: {
         email: input.email,
         ppssww: encryptedPass,
-        curso: input.curso,
+        course: input.course,
         profesor: input.profesor,
         fullname: input.fullname,
       },
@@ -202,7 +202,7 @@ function Register() {
                     message: "Debes seleccionar un curso",
                   },
                 })}
-                name="curso"
+                name="course"
               >
                 <option selected>Selecciona tu curso</option>
                 {data?.getCourses?.map((course: any, i: any) => (
@@ -211,7 +211,7 @@ function Register() {
                   </option>
                 ))}
               </select>
-              <div className="text-danger"> {errors.curso?.message} </div>
+              <div className="text-danger"> {errors.course?.message} </div>
             </div>
           </div>
         )}

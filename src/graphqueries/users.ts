@@ -3,7 +3,7 @@ import { gql } from '@apollo/client';
 const UserQueries = {
   REGISTER_STUDENT: gql`
     mutation(
-      $curso: ID!
+      $course: ID!
       $fullname: String!
       $email: String!
       $profesor: ID
@@ -12,7 +12,7 @@ const UserQueries = {
       registerStudent(
         user: {
           fullname: $fullname
-          curso: $curso
+          course: $course
           email: $email
           profesor: $profesor
           ppssww: $ppssww

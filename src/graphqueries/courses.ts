@@ -20,6 +20,15 @@ const CoursesQueries = {
       }
     }
   `,
+  GET_COURSE: gql`
+  query($id: ID!){
+    getCourse(id:$id){
+      Students
+      Teachers
+      name
+      homeworks
+    }
+  }`
 };
 
 export default CoursesQueries;

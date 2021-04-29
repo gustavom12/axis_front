@@ -14,6 +14,7 @@ import Login from "./components/login/login";
 import Register from "./components/register/register";
 import HomeLogged from "./components/homeLogged/homeLogged";
 import CreateHomeworkPage from "./components/CreateHomeworkPage/createHomework";
+import DoHomework from "./components/doHomework/DoHomework";
 const url = config.url;
 
 const client = new ApolloClient({
@@ -30,13 +31,11 @@ ReactDOM.render(
         <Provider store={store}>
           <Header></Header>
           <Switch>
-            <Route
-              path="/createhw"
-              component={CreateHomeworkPage}
-            />
+            <Route path="/createhw" component={CreateHomeworkPage}/>
+            <Route path="/hw" component={ DoHomework } />
             <Route path="/login" exact component={Login} />
             <Route path="/register" exact component={Register} />
-            <Route path="/home" exact component={HomeLogged} />
+            <Route path="/home" component={HomeLogged} />
             <Route path="/" exact component={App} />
           </Switch>
         </Provider>

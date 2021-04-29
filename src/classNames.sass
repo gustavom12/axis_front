@@ -2,8 +2,12 @@
   font-family: 'Josefin Sans', sans-serif
 .text-main
   color: $main
+.text-yellow
+  color: #fbff00
 .mr-auto
   margin-right: auto
+.ml-auto
+  margin-left: auto
 .btn-main
   color: $primary
   padding: 8px 18px
@@ -31,15 +35,39 @@
   transition: all linear 0.3s
   color: $primary
   background: #fff
-  transition: all linear 0.3s
   padding: 8px 18px
   border: $primary 1px solid
-  transition: all linear 0.3s
   border-radius: 100px
 .btn-blue2:hover
   transition: all linear 0.3s
   background: $primary
   color: #fff
+
+.btn-lightblue
+  transition: all linear 0.3s
+  color: #fff
+  background: #2493df
+  padding: 8px 18px
+  border-radius: 5px
+  border: none
+  cursor: pointer
+.btn-lightblue:hover
+  transition: background 0.3s linear
+  background: #28a2f3
+.btn-white
+  transition: all linear 0.3s
+  color: #fff
+  cursor: pointer
+  background: #00000000
+  transition: all linear 0.3s
+  padding: 8px 18px
+  border: #fff 1px solid
+  transition: all linear 0.3s
+  border-radius: 10px
+.btn-white:hover
+  transition: all linear 0.3s
+  background: #00000030
+  color: #ffffff80
 
 .btn-secondary
   background: $secondary
@@ -51,6 +79,11 @@
 .btn-secondary:hover
   transition: all linear 0.3s
   background: #e9e3e3
+
+.inline-flex
+  display: inline-flex
+  align-items: center
+  justify-content: center
 
 .flex
   display: flex
@@ -105,3 +138,64 @@
   justify-content: flex-start
   align-items: center
 
+//$toggle-background-color-on: dodgerblue
+$toggle-background-color-on: $main
+$toggle-background-color-off: #6b6b6b
+$toggle-control-color: white
+$toggle-width: 40px
+$toggle-height: 19px
+$toggle-gutter: 3px
+$toggle-radius: 40%
+$toggle-control-speed: .22s
+$toggle-control-ease: ease-in
+
+// These are our computed variables
+// change at your own risk.
+$toggle-radius: $toggle-height / 2
+$toggle-control-size: $toggle-height - ($toggle-gutter * 2)
+
+.toggle-control
+  display: block
+  position: relative
+  padding-left: $toggle-width
+  margin-bottom: 12px
+  cursor: pointer
+  font-size: 22px
+  user-select: none
+
+  input
+    position: absolute
+    opacity: 0
+    cursor: pointer
+    height: 0
+    width: 0
+
+
+  input:checked ~ .control
+    background-color: $toggle-background-color-on
+
+    &:after
+      left: $toggle-width - $toggle-control-size - $toggle-gutter
+
+
+
+  .control
+    position: absolute
+    top: 0
+    left: 0
+    height: $toggle-height
+    width: $toggle-width
+    border-radius: $toggle-radius
+    background-color: $toggle-background-color-off
+    transition: background-color $toggle-control-speed $toggle-control-ease
+
+    &:after
+      content: ""
+      position: absolute
+      left: $toggle-gutter
+      top: $toggle-gutter
+      width: $toggle-control-size
+      height: $toggle-control-size
+      border-radius: $toggle-radius
+      background: $toggle-control-color
+      transition: left $toggle-control-speed $toggle-control-ease

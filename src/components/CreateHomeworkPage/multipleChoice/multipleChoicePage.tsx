@@ -12,7 +12,6 @@ function MultipleChoicePage({
   setQuestions: any;
   register: any;
   errors: any;
-  config: any;
 }) {
   const createQuestion = (questionNumber: number) => {
     return {

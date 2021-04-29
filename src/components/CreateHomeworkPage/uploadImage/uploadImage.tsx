@@ -7,7 +7,6 @@ function UploadImage({ setUrl,id, setLoading }: { setUrl: any, id: string, setLo
       type="file"
       name="image"
       id={id}
-      accept="image/x-png,image/jpeg"
       style={{ height: "0", width: "0" }}
       onChange={(e: any) => {
         setLoading(true)

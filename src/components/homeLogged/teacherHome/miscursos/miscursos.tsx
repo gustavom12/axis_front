@@ -1,4 +1,5 @@
 import React,{} from "react";
+import { Link } from "react-router-dom";
 import './Miscursos.sass'
 
 function Miscursos ({cursos}:{cursos:[any]}){
@@ -13,7 +14,7 @@ function Miscursos ({cursos}:{cursos:[any]}){
             <h5 className="col mx-auto ">Nombre</h5>
             <h5 className="col mx-auto">Alumnos</h5>
             <h5 className="col mx-auto">Tareas Creadas</h5>
-            <br className="col mx-auto"></br>
+            <div className="col mx-auto"></div>
           </div>
         </div>
         <div className="container w-100 text-serif">
@@ -23,7 +24,9 @@ function Miscursos ({cursos}:{cursos:[any]}){
               <h6 className="col mx-auto ">{curso?.Students?.length}</h6>
               <h6 className="col mx-auto "> {curso?.homeworks?.length} </h6>
               <div className="col ">
+              <Link to={`/home/cursos?id=${curso._id}`}>
               <button className="btn btn-blue mb-auto col w-75">Ver más</button>
+              </Link>
               </div>
             </div>
           )}

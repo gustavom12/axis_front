@@ -1,0 +1,125 @@
+@import ../../../variables
+$background: #0057ff85
+.circleBackground
+  background: $background
+  position: absolute
+  height: 42vh
+  top: 70px
+  border-bottom-left-radius: 50%
+  border-bottom-right-radius: 50%
+  z-index: -1
+.studentHome
+  .makeQuiz
+    border-radius: 10px
+    width: 850px
+    padding: 20px 24px 14px 24px
+    img
+      height: 70px
+      margin-top: auto
+      margin-right: 15px
+  .user
+    padding: 0 15%
+    padding-top: 31px
+    justify-content: center
+    padding-right: 12%
+    .fa-check
+      font-size: 18px
+  .img
+    border-radius: 50%
+    background: $primary
+    width: 130px
+    height: 130px
+    font-size: 115px
+  .btn-white
+    height: 43px
+    margin-left: 20px
+  .homeworksContainer
+    .homeworkContainer
+      width: 45%
+
+@media (max-width: 960px)
+  .studentHome
+    .makeQuiz
+      border-radius: 10px
+      width: 550px
+      h3
+        font-size: 22px
+      h6
+        font-size: 14px
+    .user
+      padding: 0 4%
+      padding-top: 40px
+      padding-right: 0
+@media (max-width: 630px)
+  .studentHome
+    .misNotas
+      margin-top: 40px
+    .homeworksContainer
+      flex-direction: column
+      .homeworkContainer
+        width: 90%
+
+@media (max-width: 620px)
+  .circleBackground
+    display: none
+  .studentHome
+    .user
+      padding: 25px 0
+      background: $background
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      text-align: center
+      .course
+        margin-top: 15px
+        font-size: 25px
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        text-align: center
+        span
+          display: none
+          font-size: 22px
+          margin-top: 7px
+      .btn-white
+        margin-top: 20px !important
+      .img
+        margin: 0 auto
+        height: 150px
+        width: 150px
+        font-size: 120px
+      .name
+        flex-direction: column  !important
+        margin: 0 auto
+        h2
+          font-size: 34px
+        button
+          margin: 0 auto
+          width: 100%
+    .makeQuiz
+      flex-direction: column
+      width: 95%
+      text-align: center
+      padding-bottom: 22px
+      .firstBlock
+        justify-content: center
+        margin-bottom: 12px
+        h3
+          font-size: 25px
+        h6
+          font-size: 18px
+        img
+          display: none
+      .secondBlock
+        margin: 0 auto !important
+        button
+          width: 200px
+          font-size: 17px
+
+
+@media (max-width: 420px)
+  .studentHome
+    .homeworksContainer
+      flex-direction: column
+      .homeworkContainer
+        width: 98%

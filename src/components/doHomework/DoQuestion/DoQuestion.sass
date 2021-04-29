@@ -1,0 +1,15 @@
+.doQuestion
+  border-radius: 15px
+  padding: 20px 20px
+  img
+    max-width: 100%
+    max-height: 400px
+  .answer
+    border: none
+    border-bottom: 1px solid #000
+  .answerLong[contenteditable]:empty::before
+    content: "Tu respuesta"
+    color: gray
+  textarea::-webkit-scrollbar
+    display: none
+
