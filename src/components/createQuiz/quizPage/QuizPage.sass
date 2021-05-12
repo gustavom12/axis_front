@@ -1,0 +1,80 @@
+.quizPage
+  margin: 30px 0
+  width: 750px
+  box-shadow: 1px 0px 8px 0px #00000030
+  -webkit-box-shadow: 1px 0px 8px 0px #00000030
+  -moz-box-shadow: 1px 0px 8px 0px #00000030
+  min-height: 630px
+  position: relative
+  .quizPagePadding
+    padding: 20px 75px
+    padding-bottom: 121px
+  .goNext
+    border-top: 2px #ddd solid
+    padding: 20px 0
+    width: 750px
+    position: absolute
+    bottom: 0
+    .btn-back
+      width: 160px
+      height: 47px
+    .btn-lightblue
+      width: 160px
+      height: 47px
+  img
+    max-width: 100%
+    max-height: 600px
+    margin: 0 auto
+  .option
+    width: 100%
+    padding: 0
+    border: 1px solid #dce2e5
+    word-break: break-word
+    border-radius: 5px
+    color: #2d3846
+    align-items: flex-start
+    font-size: 20px
+    font-weight: 400
+    justify-content: center
+    box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.15)
+    -webkit-box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.15)
+    -moz-box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.15)
+    &.correct
+      transition: background 0.2s linear
+      background: rgba(115, 255, 185, 0.192)
+    &.incorrect
+      background: rgba(236, 66, 66, 0.171)
+      transition: background 0.2s linear
+  .addOption
+    width: 100%
+    background: #38495f2c
+    border: 2px #38495f50 dotted
+    font-size: 45px
+    margin-top: 20px
+    border-radius: 7px
+    height: 70px
+    color: #fff
+    cursor: pointer
+    transition: all linear 0.3s
+    &:hover
+      background: #38495f45
+      border: #38495f dotted 5px
+      transition: all linear 0.3s
+
+  .inputsBtns
+    box-shadow: 1px 0px 8px 0px #00000010
+    -webkit-box-shadow: 1px 0px 8px 0px #00000010
+    -moz-box-shadow: 1px 0px 8px 0px #00000010
+    background: #00000020
+    padding: 15px
+    margin-top: 25px
+    width: 600px
+    border-radius: 5px
+    .iconBtn
+      border-radius: 50%
+      color: #fff
+      cursor: pointer
+      height: 80px
+      width: 80px
+      background: #38495f83
+      font-size: 40px

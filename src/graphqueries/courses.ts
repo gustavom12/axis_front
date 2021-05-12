@@ -17,6 +17,7 @@ const CoursesQueries = {
         Students
         homeworks
         Teachers
+        name
       }
     }
   `,

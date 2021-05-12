@@ -8,10 +8,10 @@ function UploadImage({ setUrl,id, setLoading }: { setUrl: any, id: string, setLo
       name="image"
       id={id}
       style={{ height: "0", width: "0" }}
+      accept="image/x-png,image/gif,image/jpeg"
       onChange={(e: any) => {
-        setLoading(true)
+        if(setLoading)setLoading(true)
         const input: any = e.target;
-        console.log({body: input.files[0]})
         let formData = new FormData()
         //send automatically the image to backend on select
         formData.append('image', input.files[0])
@@ -21,13 +21,13 @@ function UploadImage({ setUrl,id, setLoading }: { setUrl: any, id: string, setLo
         })
           .then((data:any)=>data.json())
           .then(json=>{
-            console.log(json)
             setUrl(json.url)
-            setLoading(false)
+            console.log(json)
+            if(setLoading)setLoading(false)
           })
           .catch(err =>{
             console.log(err)
-            setLoading(false)})
+            if(setLoading)setLoading(false)})
         }}
     />
   );

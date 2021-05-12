@@ -23,11 +23,11 @@ function MultipleChoiceType({ question, setAnswers,answers }: { question: any,se
             value={`${answer.number}`}
             onChange={(e:any)=>{
               const clone = answers
-              clone[answers.indexOf(question)].answer = {
+              clone[answers.indexOf(question)].answer = JSON.stringify({
                 optionNumber: e.target.value,
                 isCorrect: answer.isCorrect,
                 text: answer.text
-              }
+              })
               setAnswers([...clone])
             }}
           />

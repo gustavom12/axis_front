@@ -59,7 +59,7 @@ function DoHomework() {
         setSendHWDiv(true);
         const doneDate = new Date(DoneHomework.doneDate).getTime()
         const expires_date = new Date(DoneHomework.expires_date).getTime()
-        if(doneDate - expires_date < 0 ) setSendToDatePoints(true)
+        if(doneDate - expires_date > 0 ) setSendToDatePoints(true)
       })
       .catch((err: any) => {
         console.log({ err });

@@ -9,8 +9,8 @@ import test from "./test.svg";
 import { Link } from "react-router-dom";
 import MisNotas from "./MisNotas/MisNotas";
 import { useState } from "react";
-import UploadImage from "../../CreateHomeworkPage/uploadImage/uploadImage";
-
+import EditProfile from "./editProfile/editProfile";
+import Notifications from "./notifications/Notifications";
 function StundentHome() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -20,14 +20,14 @@ function StundentHome() {
     getX();
   }, [dispatch]);
   const user = useSelector((store: any) => store.user.user);
-  const [ homeworksNotDoneLength, setHomeworksNotDoneLength ] = useState(0)
+  const [homeworksNotDoneLength, setHomeworksNotDoneLength] = useState(0);
   const [getCourse, { data }] = useLazyQuery(CoursesQueries.GET_COURSE);
-  const [userImg, setUserImg] = useState("")
+  const [editProfileDiv, setEditProfileDiv] = useState(false);
+
   useEffect(() => {
     if (user.course) {
       getCourse({ variables: { id: user.course } });
     }
-    console.log({user})
   }, [user, getCourse]);
   return (
     <>
@@ -37,31 +37,34 @@ function StundentHome() {
         style={{
           background: "#a8bebe54",
           minHeight: "92vh",
+          paddingBottom: "7vh"
         }}
       >
         <div className="user d-flex">
-          {userImg !== "" ?
-          <>
-            <img
-              src={userImg} alt="" className="img"
-            />
-            <i className="fas fa-camera"></i>
-            <UploadImage id="userImg" setUrl={setUserImg}/>
-          </> :
-          <>
-            <div className="img flex fw-bold text-white text-capitalize">
-              {user.fullname.split("", 1)}
-            </div>
-            <i className="fas fa-camera" ></i>
-            <UploadImage id="userImg" setUrl={setUserImg}/>
-          </>
-          }
+          {user.image ? (
+            <>
+              <img src={user.image} alt="" className="img" />
+            </>
+          ) : (
+            <>
+              <div className="img flex fw-bold text-white text-capitalize">
+                {user.fullname.split("", 1)}
+              </div>
+            </>
+          )}
           <div className="d-flex mx-4 mt-3 flex-column">
             <div className="d-flex name">
               <h2 className="text-serif text-white text-capitalize fw-bold mb-0">
                 {user.fullname}
               </h2>
-              <button className="btn-white fw-bold">Editar Perfil</button>
+              <button
+                className="btn-white fw-bold"
+                onClick={() => {
+                  setEditProfileDiv(true);
+                }}
+              >
+                Editar Perfil
+              </button>
             </div>
             <h5 className="text-white mx-2 course d-flex">
               {data?.getCourse?.name}
@@ -70,12 +73,12 @@ function StundentHome() {
                 {data?.getCourse?.Teachers[0].fullname}{" "}
               </span>
             </h5>
-            {homeworksNotDoneLength === 0 ?
+            {homeworksNotDoneLength === 0 ? (
               <h5 className="text-success ">
                 <i className="fas fa-check mx-2 my-auto"></i>
                 Felicidades! Estás al día con tus tareas!
               </h5>
-            : null}
+            ) : null}
             <h6 className="level fw-bold mt-1 text-serif text-white">
               <i className="fas fa-star mx-2 text-yellow"></i>
               {user.exp} XP
@@ -118,6 +121,17 @@ function StundentHome() {
             />
           </div>
         </div>
+        <div className="flex ">
+          <Notifications notifications={user.notifications} />
+        </div>
+        {editProfileDiv ? (
+          <EditProfile
+            user={user}
+            userImg={user.image}
+            name={user.fullname.split("", 1)}
+            setEditProfileDiv={setEditProfileDiv}
+          />
+        ) : null}
       </section>
     </>
   );

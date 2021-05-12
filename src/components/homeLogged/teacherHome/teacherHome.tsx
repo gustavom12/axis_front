@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetUser } from "../../../redux/userDuck";
 import CreateHW from "./CreateHWSelect/createhw";
 import CoursePage from "../../coursePage/coursePage"
+import StudentData from "../../studentData/studentData";
 
 function TeacherHome(){
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function TeacherHome(){
   }, [dispatch]);
   const user = useSelector((store: any) => store.user.user);
   const pathname = window.location.pathname
+  console.log(user)
   return(
     <>
       {/* <CreateHW/> */}
@@ -31,15 +33,15 @@ function TeacherHome(){
           pathname.includes("createhw")
             ? <CreateHW/>
             :
-          pathname.includes("cursos")
+          pathname.includes("cursos") && user.cursos
             ? <CoursePage ></CoursePage>
             :
-          pathname.includes("students")
-            ? <div className="students"></div>
+          pathname.includes("courses")
+            ? <Miscursos cursos={user.cursos}/>
             :
-          pathname.includes("students")
-            ? <div className="students"></div>
-            : <Miscursos cursos={user.cursos}/>
+          pathname.includes("alumn")
+            ? <StudentData/>
+            : <CoursePage ids={user.cursos.map((el:any)=>el._id)}></CoursePage>
         }
       </div>
     </>

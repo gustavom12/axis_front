@@ -21,28 +21,38 @@ const UserQueries = {
     }
   `,
   REGISTER_TEACHER: gql`
-  mutation($fullname:String!,$cursos:[ID]!,$email:String!,$ppssww:String!){
-    registerTeacher(user:{
-      fullname: $fullname
-      cursos: $cursos
-      email: $email
-      ppssww: $ppssww
-    })
-  }`,
+    mutation(
+      $fullname: String!
+      $cursos: [ID]!
+      $email: String!
+      $ppssww: String!
+    ) {
+      registerTeacher(
+        user: {
+          fullname: $fullname
+          cursos: $cursos
+          email: $email
+          ppssww: $ppssww
+        }
+      )
+    }
+  `,
   GET_STUDENT: gql`
-    query($email: String!) {
-      getStudent(email: $email) {
-        id
-        email
-        curso
-        ppssww
-        profesor
+    query($id: ID!) {
+      getStudent(id: $id) {
+        _id
+        image
+        exp
+        homework
         fullname
+        course
+        email
+        userType
       }
     }
   `,
   GET_TEACHER: gql`
-    query ($email: String!){
+    query($email: String!) {
       getTeacher(email: $email) {
         id
         email
@@ -53,9 +63,16 @@ const UserQueries = {
       }
     }
   `,
-  LOGIN: gql`query($email:String!){
-    Login(email:$email)
-  }`,
+  LOGIN: gql`
+    query($email: String!) {
+      Login(email: $email)
+    }
+  `,
+  editProfile: gql`
+    mutation($id: ID!, $url: String!, $fullname: String!) {
+      editProfile(id: $id, url: $url, fullname: $fullname)
+    }
+  `,
 };
 
 export default UserQueries;

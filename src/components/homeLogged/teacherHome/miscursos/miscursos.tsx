@@ -24,7 +24,7 @@ function Miscursos ({cursos}:{cursos:[any]}){
               <h6 className="col mx-auto ">{curso?.Students?.length}</h6>
               <h6 className="col mx-auto "> {curso?.homeworks?.length} </h6>
               <div className="col ">
-              <Link to={`/home/cursos?id=${curso._id}`}>
+              <Link to={`/home/cursos?ids=[${curso._id}]`}>
               <button className="btn btn-blue mb-auto col w-75">Ver más</button>
               </Link>
               </div>

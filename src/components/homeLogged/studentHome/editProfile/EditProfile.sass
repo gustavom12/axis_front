@@ -1,0 +1,37 @@
+.editProfile
+  border-radius: 30px
+  padding: 0px 2% 45px 2%
+  min-height: 50vh
+  width: 60%
+  .img
+    height: 180px
+    width: 180px
+  .label-img
+    height: 180px
+    width: 180px
+  .onHover
+    height: 180px
+    width: 180px
+    position: absolute
+    visibility: none
+    opacity: 0
+    cursor: pointer
+    background: #00000040
+    font-size: 55px
+    transition: opacity linear 0.3s
+    border-radius: 50%
+  .onHover:hover
+    transition: opacity linear 0.3s
+    opacity: 1
+    visibility: visible
+.w-60
+  width: 60%
+@media (max-width: 700px)
+  .darkTrasnparentbg
+    .editProfile
+      padding: 0 3% 26px 3%
+      width: 90%
+      .w-60
+        width: 80%
+      .btn-blue2
+        font-size: 19px !important

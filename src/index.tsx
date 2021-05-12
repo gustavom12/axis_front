@@ -15,6 +15,9 @@ import Register from "./components/register/register";
 import HomeLogged from "./components/homeLogged/homeLogged";
 import CreateHomeworkPage from "./components/CreateHomeworkPage/createHomework";
 import DoHomework from "./components/doHomework/DoHomework";
+import CorrectHomework from "./components/correctHomework/correctHomework";
+import CorrectedHomework from "./components/viewCorrectedHomework/CorrectedHomework";
+import CreateQuiz from "./components/createQuiz/CreateQuiz";
 const url = config.url;
 
 const client = new ApolloClient({
@@ -33,6 +36,9 @@ ReactDOM.render(
           <Switch>
             <Route path="/createhw" component={CreateHomeworkPage}/>
             <Route path="/hw" component={ DoHomework } />
+            <Route path="/chw" component={ CorrectHomework } />
+            <Route path="/corrected" component={ CorrectedHomework } />
+            <Route path="/createquiz" exact component={ CreateQuiz }/>
             <Route path="/login" exact component={Login} />
             <Route path="/register" exact component={Register} />
             <Route path="/home" component={HomeLogged} />

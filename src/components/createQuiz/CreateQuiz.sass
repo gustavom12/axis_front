@@ -1,0 +1,75 @@
+@import ../../variables
+
+.inputMinimalist
+  background: #00000000
+  border: none
+  padding: 0 5px
+.inputMinimalist:focus
+  outline: none
+  border: none
+  transition: border linear 0.3s
+  border-bottom: 1px solid #2e2e2e !important
+.btn-back
+  color: #2493df
+  border: 1px solid #2493df
+  background: #f9f9fa
+  transition: background linear 0.3s
+  cursor: pointer
+  &:hover
+    background: #ddd
+    color: #3fa7ec
+    transition: background linear 0.3s
+
+.pageProgressBar
+  width: 50px
+  height: 8px
+  background: #40bf9c
+  margin: 0 3.5px
+  border-radius: 15px
+  border: 2px solid #00000000
+  transition: all linear 0.3s
+.pageProgressBar:hover
+  transition: all linear 0.3s
+  border: 2px solid #0aa378
+.semiRound
+  height: 200px
+  width: 110%
+  left: -5%
+  z-index: -1
+  background: #38495f
+  position: absolute
+.addPage
+  width: 70px
+  height: 70px
+  background: #38495f83
+  color: #ffffff80
+  border-radius: 50%
+  font-size: 40px
+  cursor: pointer
+  transition: all linear 0.3s
+.addPage:hover
+  transition: all linear 0.3s
+  background: #38495f
+  color: #fff
+header
+  background: #38495f
+  padding: 5vh 20%
+  .title
+    height: 50px
+  .inputMinimalist.title:focus
+    border-bottom: 1px solid #eeeeee !important
+  .img
+    width: 100px
+    height: 100px
+    background: #2493df
+    color: #ddd
+    font-size: 50px
+    border-radius: 50%
+    cursor: pointer
+    margin-right: 23px
+  h1
+    margin-top: 7px
+
+.submitContainer
+  border-top: 2px solid #ddd
+  margin-top: 60px

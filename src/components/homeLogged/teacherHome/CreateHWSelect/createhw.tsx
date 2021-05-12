@@ -4,7 +4,7 @@ import choices from "./choices.svg";
 import conversation from "./conversation.svg";
 import TextHover from "../../../a_mini_components/textOnHover";
 import { Link } from "react-router-dom";
-
+import select from "../sidebar/rating.svg"
 function CreateHW() {
   const backend: any = process.env.REACT_APP_URL?.replace("/graphql", "");
   const backendURL: any = `${backend}/upload/pdf`;
@@ -54,6 +54,15 @@ function CreateHW() {
           <i className="far fa-file-word"></i>
           <TextHover message="Sube un archivo Word (aún no disponible)" />
         </div>
+        <Link to="/createquiz">
+          <div className="icon HoverFather flex">
+            <img src={select} alt="" style={{width:"60px"}}/>
+            <TextHover
+              message="Crea un Vocabulary Quiz"
+              margin="0 270px 0 0"
+            />
+          </div>
+        </Link>
         <Link to="/createhw/questions_answer">
           <div className="icon HoverFather flex">
             <img src={conversation} alt="" />

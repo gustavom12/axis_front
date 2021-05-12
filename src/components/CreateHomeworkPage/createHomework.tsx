@@ -18,7 +18,7 @@ function CreateHW(props: any) {
   const [config, setConfig] = useState({
     cursos: [],
     fecha_de_entrega: "2021-06-01",
-    inTimeEXP: null
+    inTimeEXP: 50
   });
   const [createMultipleChoice, { loading }] = useMutation(
     HomeworkQueries.CreateMultipleChoice
