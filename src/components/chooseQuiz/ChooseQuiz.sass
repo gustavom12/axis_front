@@ -1,0 +1,48 @@
+@import ../../variables
+.chooseQuiz
+  background: $background
+  padding: 70px 0
+  min-height: 90vh
+  .quizes
+    display: grid
+    grid-template-columns: repeat( auto-fit, minmax(180px, 1fr) )
+    padding: 0 150px
+    .QuizCard
+      padding: 28px 22px
+      background: #f9f9fa
+      width: 180px
+      border-radius: 7px
+      border: 2px solid #dce2e5
+      margin-top: 35px
+      position: relative
+      top: 0
+      -webkit-transition: all 0.5s ease
+      -moz-transition: all 0.5s ease
+      -ms-transition: all 0.5s ease
+      -o-transition: all 0.5s ease
+      transition: all 0.5s ease
+      &:hover
+        top: -10px
+      .imgPresentation
+        width: 91px
+        height: 91px
+        border-radius: 50%
+        border: 2px solid #dce2e5
+        margin-bottom: 20px
+        .circle
+          width: 88px
+          height: 88px
+          border-radius: 50%
+          border: 2.5px solid #fff
+          background: $primary
+      .hard
+        color: rgb(187, 0, 0)
+      .normal
+        color: rgb(0, 167, 170)
+      .easy
+        color: rgb(0, 151, 20)
+
+@media (max-width: 700px)
+  .chooseQuiz
+    .quizes
+      padding: 0 20px

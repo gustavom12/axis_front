@@ -98,9 +98,9 @@ function StundentHome() {
             </div>
           </div>
           <div className="ml-auto flex secondBlock">
-            <button className="btn-lightblue fw-bold text-serif">
+            <Link to="/quizes" className="btn-lightblue fw-bold text-serif text-white">
               Empezar
-            </button>
+            </Link>
           </div>
         </div>
         <div className="d-flex homeworksContainer p-1 w-100 mt-4">

@@ -1,6 +1,11 @@
 import { gql } from '@apollo/client';
 
 const CoursesQueries = {
+  createCourse: gql`
+    mutation ($Course: newCourse!) {
+      createCourse(Course: $Course)
+    }
+  `,
   GET_COURSES: gql`
     query {
       getCourses {
@@ -12,7 +17,7 @@ const CoursesQueries = {
     }
   `,
   GET_COURSES_BY_IDS: gql`
-    query($ids: [ID!]!) {
+    query ($ids: [ID!]!) {
       getCoursesById(ids: $ids) {
         Students
         homeworks
@@ -22,14 +27,15 @@ const CoursesQueries = {
     }
   `,
   GET_COURSE: gql`
-  query($id: ID!){
-    getCourse(id:$id){
-      Students
-      Teachers
-      name
-      homeworks
+    query ($id: ID!) {
+      getCourse(id: $id) {
+        Students
+        Teachers
+        name
+        homeworks
+      }
     }
-  }`
+  `,
 };
 
 export default CoursesQueries;

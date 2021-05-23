@@ -7,6 +7,7 @@ import { GetUser } from "../../../redux/userDuck";
 import CreateHW from "./CreateHWSelect/createhw";
 import CoursePage from "../../coursePage/coursePage"
 import StudentData from "../../studentData/studentData";
+import CreateCourse from "../../createCourse/createCourse";
 
 function TeacherHome(){
   const dispatch = useDispatch();
@@ -41,8 +42,11 @@ function TeacherHome(){
             :
           pathname.includes("alumn")
             ? <StudentData/>
+            :
+          pathname.includes("createcourse")
+            ? <CreateCourse/>
             : <CoursePage ids={user.cursos.map((el:any)=>el._id)}></CoursePage>
-        }
+          }
       </div>
     </>
   )

@@ -96,7 +96,7 @@ function CorrectHomework() {
             {qa.image ? <img src={qa.image} alt="" /> : null}
             {qa.type === "textLong" ? (
               <div>
-                <h6 className="mb-3">{qa.answer}</h6>
+                <h6 className="mb-3 studentAnswer">{qa.answer}</h6>
                 <AddNote
                   homeworkDone={homeworkDone}
                   question_answer={qa}
@@ -106,7 +106,7 @@ function CorrectHomework() {
               </div>
             ) : qa.type === "textShort" ? (
               <div>
-                <h5 className="mb-3">{qa.answer}</h5>
+                <h5 className="mb-3 studentAnswer">{qa.answer}</h5>
                 <AddNote
                   homeworkDone={homeworkDone}
                   question_answer={qa}
@@ -117,7 +117,7 @@ function CorrectHomework() {
             ) : qa.type === "number" ? (
               <>
                 <div>
-                  <h5 className=" text-center fw-bold mb-3">
+                  <h5 className=" text-center fw-bold mb-3 studentAnswer">
                     respuesta: <span className="fw-bold">{qa.answer}</span>
                   </h5>
                   <AddNote
@@ -187,7 +187,7 @@ function CorrectHomework() {
             <input
               min={0}
               max={1000}
-              defaultValue={200}
+              defaultValue={50}
               type="number"
               placeholder="exp"
               className="form-control text-serif mb-3"

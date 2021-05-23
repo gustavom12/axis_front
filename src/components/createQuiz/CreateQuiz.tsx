@@ -232,35 +232,37 @@ function CreateQuiz() {
             <i
               className="addPage flex mx-auto HoverFather"
               onClick={() => {
-                setQuiz({
-                  ...Quiz,
-                  pages: [
-                    ...Quiz.pages,
-                    {
-                      question: [],
-                      type: "onlyExplain",
-                      Number:
-                        Quiz.pages[Quiz.pages.length - 1]?.Number + 1 || 0,
-                      options: [
-                        {
-                          value: "Option 1",
-                          isCorrect: true,
-                          Number: 1,
-                        },
-                        {
-                          value: "Option 2",
-                          isCorrect: false,
-                          Number: 2,
-                        },
-                        {
-                          value: "Option 3",
-                          isCorrect: false,
-                          Number: 3,
-                        },
-                      ],
-                    },
-                  ],
-                });
+                //aún no disponible
+                return;
+                // setQuiz({
+                //   ...Quiz,
+                //   pages: [
+                //     ...Quiz.pages,
+                //     {
+                //       question: [],
+                //       type: "onlyExplain",
+                //       Number:
+                //         Quiz.pages[Quiz.pages.length - 1]?.Number + 1 || 0,
+                //       options: [
+                //         {
+                //           value: "Option 1",
+                //           isCorrect: true,
+                //           Number: 1,
+                //         },
+                //         {
+                //           value: "Option 2",
+                //           isCorrect: false,
+                //           Number: 2,
+                //         },
+                //         {
+                //           value: "Option 3",
+                //           isCorrect: false,
+                //           Number: 3,
+                //         },
+                //       ],
+                //     },
+                //   ],
+                // });
               }}
             >
               <h2

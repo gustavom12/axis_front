@@ -74,13 +74,13 @@ function ConfigHW({
           className="mx-3 d-inline"
           required
           min={1}
-          max={1000}
+          max={100}
           onChange={(e) => {
             config.inTimeEXP = e.target.value
             setConfig({...config})
           }}
         />
-        <p>Por defecto: 50EXP</p>
+        <p>Por defecto: 25EXP</p>
       </div>
       <div className="mt-3">
         <h5 className="mb-1 fw-bold d-inline">Auto calificación </h5>

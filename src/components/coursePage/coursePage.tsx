@@ -1,17 +1,28 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CoursesQueries from "../../graphqueries/courses";
-// import Sidebar from "../homeLogged/teacherHome/sidebar/sidebar";
 import Loader from "../loader/loader";
+import SendNotification from "../sendNotification/sendNotification";
 import "./CoursePage.sass";
-function CoursePage({ids = window.location.search.replace("?ids=", "")}:{ids ?:any}) {
+function CoursePage({
+  ids = window.location.search.replace("?ids=", ""),
+}: {
+  ids?: any;
+}) {
+  const [sendNotification, setSendNotification] = useState({
+    to: { img: "", id: "", fullname: "" },
+    from: { img: "", id: "", fullname: "" },
+  });
+  const user = useSelector((store:any)=>store.user.user)
+  console.log(user)
   const { data, loading } = useQuery(CoursesQueries.GET_COURSES_BY_IDS, {
     variables: {
       ids,
     },
   });
-  console.log({ids})
   return (
     <section
       className="coursePage flex w-100"
@@ -20,7 +31,14 @@ function CoursePage({ids = window.location.search.replace("?ids=", "")}:{ids ?:a
         padding: "20px 10px",
       }}
     >
-      {/* <Sidebar/> */}
+      {sendNotification?.to?.fullname && (
+        <SendNotification
+          type="message"
+          to={sendNotification.to}
+          from={sendNotification.from}
+          setToFrom={setSendNotification}
+        />
+      )}
       <div className="curso w-100">
         {loading ? (
           <div className="flex mt-5">
@@ -33,11 +51,11 @@ function CoursePage({ids = window.location.search.replace("?ids=", "")}:{ids ?:a
                 <h5 className="col mx-auto ">Student</h5>
                 <h5 className="col-1 mx-auto">Exp</h5>
                 <h6 className="col mx-auto">Tareas Entregadas</h6>
-                <h6 className="col mx-auto"> Promedio de notas </h6>
+                <div className="col mx-auto"></div>
                 <div className="col mx-auto"></div>
               </div>
             </div>
-            {data?.getCoursesById.map((getCourse: any,i:any) => (
+            {data?.getCoursesById.map((getCourse: any, i: any) => (
               <div key={i}>
                 <div className="students">
                   {getCourse.Students.map((student: any) => {
@@ -69,10 +87,27 @@ function CoursePage({ids = window.location.search.replace("?ids=", "")}:{ids ?:a
                             <h6 className="flex col mx-auto">
                               {notDone}/{student.homework.length}
                             </h6>
-                            <h6 className="flex col mx-auto">
-                              {" "}
-                              Aún no disponible{" "}
-                            </h6>
+                            <div className="flex col mx-auto">
+                              <button
+                                className="btn btn-blue2 mb-auto col fw-bold"
+                                onClick={() =>
+                                  setSendNotification({
+                                    to: {
+                                      img: student.image,
+                                      id: student._id,
+                                      fullname: student.fullname,
+                                    },
+                                    from: {
+                                      img: user.image,
+                                      id: user._id,
+                                      fullname: user.fullname
+                                    },
+                                  })
+                                }
+                              >
+                                Enviar notificación
+                              </button>
+                            </div>
                             <div className="flex col mx-auto">
                               <Link
                                 to={"home/alumn?id=" + student._id}

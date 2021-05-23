@@ -51,11 +51,11 @@ function Notas({ done_hw_id }: { done_hw_id: String }) {
       }}
     >
       <Message message={errorMessage}/>
-      {data?.getHomeworkDone?.calification ? (
+      {/* {data?.getHomeworkDone?.calification ? (
         <div className="flex HomeworkHover" style={{ position: "absolute" }}>
           <i className="fas fa-eye"></i>
         </div>
-      ) : null}
+      ) : null} */}
       {loading ? (
         <div className="flex">
           <Loader />
@@ -70,7 +70,7 @@ function Notas({ done_hw_id }: { done_hw_id: String }) {
             }`}
           >
             {data?.getHomeworkDone?.expGiven ? (
-              <h6>
+              <h6 className="inline-flex">
                 <i className="fas fa-star mx-1 text-yellow"></i>
                 <span className="fw-bold">
                   {data?.getHomeworkDone?.expGiven}

@@ -17,7 +17,7 @@ function Sidebar() {
   const changePathname = (url: string) => {
     console.log(user.cursos);
     console.log(Url);
-    window.location.pathname = url
+    window.location.pathname = url;
     setUrl(url);
   };
   const [Url, setUrl] = useState(window.location.pathname);
@@ -26,18 +26,15 @@ function Sidebar() {
       <h5 className="fw-bold mb-1">Teacher Tools</h5>
       <hr className="hr w-25 m-0" />
       <div className="tools w-100 mt-3">
-          <div
-            onClick={() => changePathname("/home")}
-            className={`d-flex tool mt-1 px-1 ${
-              Url === "/home" ? "active text-white" : null
-            }`}
-          >
-            <i
-              className="fas fa-user-graduate"
-              style={{ fontSize: "25px" }}
-            ></i>
-            <h6 className="my-auto ml-1">Mis alumnos</h6>
-          </div>
+        <div
+          onClick={() => changePathname("/home")}
+          className={`d-flex tool mt-1 px-1 ${
+            Url === "/home" ? "active text-white" : null
+          }`}
+        >
+          <i className="fas fa-user-graduate" style={{ fontSize: "25px" }}></i>
+          <h6 className="my-auto ml-1">Mis alumnos</h6>
+        </div>
         <div
           className={`d-flex tool mt-1 px-1 ${
             Url.includes("courses") ? "active" : null
@@ -80,7 +77,10 @@ function Sidebar() {
       <h5 className="fw-bold mt-2 mb-0">Admin Tools</h5>
       <hr className="hr w-25 m-0" />
       <div className="tools w-100 mt-2">
-        <div className="d-flex tool mt-1 px-1">
+        <div
+          className={`d-flex tool mt-1 px-1 ${Url.includes("createcourse") ? "active" : null}`}
+          onClick={() => changePathname("/home/createcourse")}
+        >
           <img
             src={coursesvg}
             className="mr-1"

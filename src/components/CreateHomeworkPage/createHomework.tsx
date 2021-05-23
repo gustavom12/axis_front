@@ -11,6 +11,7 @@ import { useMutation } from "@apollo/client";
 import { useEffect } from "react";
 import Loader from "../loader/loader";
 import QuestionsAnswers from "./QuestionsAnswers/QuestionsAnswers";
+import AlreadyUploadedHw from "./alreadyUpload";
 
 function CreateHW(props: any) {
   const pathname: string = props.location.pathname;
@@ -18,7 +19,7 @@ function CreateHW(props: any) {
   const [config, setConfig] = useState({
     cursos: [],
     fecha_de_entrega: "2021-06-01",
-    inTimeEXP: 50
+    inTimeEXP: 25
   });
   const [createMultipleChoice, { loading }] = useMutation(
     HomeworkQueries.CreateMultipleChoice
@@ -150,9 +151,7 @@ function CreateHW(props: any) {
           <Loader />
         </div>
       ) : null}
-      <div className="flex text-center">
-        <h2 className="text-main mt-2">{success}</h2>
-      </div>
+      {success && <AlreadyUploadedHw success={success} loading={loading}/>}
     </section>
   );
 }

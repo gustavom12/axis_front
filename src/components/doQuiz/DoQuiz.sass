@@ -1,0 +1,178 @@
+@import ../../variables
+.DoQuiz
+  .doQuizPage
+    padding: 30px 24%
+  .top
+    background: #00000004
+    padding: 20px 25px
+    width: 100%
+  .x
+    position: absolute
+  .option
+    width: 100%
+    margin: 0 auto
+    padding: 15px 5%
+    cursor: pointer
+    border: 1px solid #dce2e5
+    word-break: break-word
+    border-radius: 5px
+    color: #2d3846
+    align-items: flex-start
+    font-size: 20px
+    font-weight: 400
+    justify-content: center
+    box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.15)
+    -webkit-box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.15)
+    -moz-box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.15)
+    transition: all 0.3s linear
+    &:hover
+      background: #00000005
+      transition: all 0.3s linear
+    &.selected
+      background: #dbf0ff
+      border: 1px solid #2493df
+      box-shadow: 0px 4px 0px 0px #0f3d5c5e
+      -webkit-box-shadow: 0px 4px 0px 0px #0f3d5c5e
+      -moz-box-shadow: 0px 4px 0px 0px #0f3d5c5e
+    &.success
+      background: #bde8e0
+      box-shadow: 0px 4px 0px 0px #40bf9c
+      -webkit-box-shadow: 0px 4px 0px 0px #40bf9c
+      -moz-box-shadow: 0px 4px 0px 0px #40bf9c
+  .goNext
+    border-top: 2px #ddd solid
+    padding: 20px 100px
+    width: 100%
+    margin-top: 15px !important
+    bottom: 0
+    position: relative
+    z-index: 2
+    .resultMessage
+      width: 50%
+      padding: 11px 8px
+      position: absolute
+      left: -100%
+      background: #f35843
+      color: #fff
+      transition: all ease-in-out 0.7s
+      border-radius: 5px
+      top: -90px
+      &.error
+        transition: all ease-in-out 0.9s
+        left: 25%
+        background: #f35843
+        visibility: visible
+      &.success
+        transition: all linear 0.6s
+        background: #40bf9c
+        left: 25%
+        visibility: visible
+      i
+        width: 40px
+        height: 40px
+        background: #fff
+        border-radius: 50%
+        &.error
+          color: #f35843
+          border: 2px solid #db7a7a
+        &.success
+          color: #40bf9c
+          border: 2px solid #98dac6
+    .btn-back
+      min-height: 47px
+      width: 220px
+    .btn-lightblue
+      min-height: 47px
+      width: 220px
+  .pageProgressBar
+    width: 50px
+    height: 12px
+    background: #fff
+    margin: 0 3.5px
+    border-radius: 15px
+    border: 2px solid #00000010
+    transition: all linear 0.3s
+    &.correct
+      background: #40bf9c
+    &.incorrect
+      background: #ff0000af
+    &.actual
+      border: 2px solid #1100ffaf
+      &:hover
+        #db5442
+  .pageProgressBar:hover
+    transition: all linear 0.3s
+    border: 2px solid #00000040
+  .finishedQuiz
+    border-radius: 20px
+    min-width: 57%
+    padding-bottom: 30px
+    position: relative
+    .btn-lightblue
+      width: 65%
+    .medalContainer
+      position: relative
+      height: 210px
+      .medal
+        height: 185px
+        position: relative
+        top: 0
+        z-index: 2
+    .finishedPageText
+      position: relative
+      z-index: 3
+      background: #fff
+      padding-top: 25px
+    .confettiContainer
+      position: absolute
+      top: 0
+      width: 100%
+      height: 210px
+      background: $main
+      border-bottom-left-radius: 50%
+      border-bottom-right-radius: 50%
+      z-index: 0
+      .confetti
+        position: relative
+        // height: 150px
+        width: 20%
+        // animation: topToBottom  1s linear infinite
+        z-index: 0
+
+@keyframes topToBottom
+  0%
+    top: -50vh
+  100%
+    top: 200px
+
+@media (max-width: 700px)
+  .DoQuiz
+    .doQuizPage
+      padding: 30px 25px
+    .top
+      padding: 20px 12px
+    .goNext
+      padding: 20px 0
+      .resultMessage
+        width: 90%
+        &.error
+          left: 5%
+        &.success
+          left: 5%
+      .btn-back
+        width: 140px
+      .btn-lightblue
+        width: 140px
+    .finishedQuiz
+      width: 90%
+      .finishedPageText
+        padding-top: 10px
+        br
+          display: none
+@media (max-width: 380px)
+  .DoQuiz
+    .goNext
+      .btn-back
+        width: 110px
+      .btn-lightblue
+        width: 110px

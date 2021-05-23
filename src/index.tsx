@@ -18,10 +18,14 @@ import DoHomework from "./components/doHomework/DoHomework";
 import CorrectHomework from "./components/correctHomework/correctHomework";
 import CorrectedHomework from "./components/viewCorrectedHomework/CorrectedHomework";
 import CreateQuiz from "./components/createQuiz/CreateQuiz";
+import ChooseQuiz from "./components/chooseQuiz/chooseQuiz";
+import DoQuiz from "./components/doQuiz/DoQuiz";
 const url = config.url;
 
 const client = new ApolloClient({
-  cache: new InMemoryCache({}),
+  cache: new InMemoryCache({
+    addTypename: false
+  }),
   uri: url,
 });
 //Redux
@@ -38,6 +42,8 @@ ReactDOM.render(
             <Route path="/hw" component={ DoHomework } />
             <Route path="/chw" component={ CorrectHomework } />
             <Route path="/corrected" component={ CorrectedHomework } />
+            <Route path="/quiz" component={ DoQuiz }/>
+            <Route path="/quizes" exact component={ ChooseQuiz }/>
             <Route path="/createquiz" exact component={ CreateQuiz }/>
             <Route path="/login" exact component={Login} />
             <Route path="/register" exact component={Register} />

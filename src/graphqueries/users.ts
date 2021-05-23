@@ -63,6 +63,17 @@ const UserQueries = {
       }
     }
   `,
+  GET_TEACHERs: gql`
+  query {
+    getTeachers{
+      _id
+      email
+      ppssww
+      alumnos
+      fullname
+    }
+  }
+`,
   LOGIN: gql`
     query($email: String!) {
       Login(email: $email)
