@@ -57,6 +57,8 @@ function StudentData() {
           <h2 className="fw-bold text-capitalize">
             {data?.getStudent?.fullname}
           </h2>
+          <h5 className=""> Email: <span className="fw-bold"> {data?.getStudent?.email} </span> </h5>
+          <h5> Quizes realizados: <span>{data?.getStudent?.doneQuizes?.length || 0}</span> </h5>
           <h5 className=" text-serif">
             <i className="fas fa-star mx-1 text-yellow"></i>
             {data?.getStudent?.exp} EXP

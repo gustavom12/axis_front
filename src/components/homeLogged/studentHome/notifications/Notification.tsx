@@ -9,14 +9,13 @@ function Notification({ id }: { id: String }) {
   const { data, loading } = useQuery(NotificationQueries.getNotification, {
     variables: { id: id },
   });
-  console.log(data?.getNotification);
-  const [date, setDate] = useState<any>(null)
-  useEffect(()=>{
-    if(!data)return;
-    const x = Date.parse(data.getNotification.date)
-    setDate(`${GetDate(x).day}/${GetDate(x).month}/${GetDate(x).year}`)
-    console.log(GetDate(x))
-  },[data])
+  const [date, setDate] = useState<any>(null);
+  useEffect(() => {
+    if (!data) return;
+    const x = Date.parse(data.getNotification.date);
+    setDate(`${GetDate(x).day}/${GetDate(x).month}/${GetDate(x).year}`);
+    console.log(GetDate(x));
+  }, [data]);
   return loading ? (
     <div className="flex">
       {" "}
@@ -30,6 +29,10 @@ function Notification({ id }: { id: String }) {
         <div className="image fs-2 text-white inline-flex mx-2">
           <i className="fas fa-comment-dots"></i>
         </div>
+      ) : data.getNotification.type === "homework" ? (
+        <div className="image fs-2 text-white inline-flex mx-2 mt-1">
+          <i className="fas fa-book"></i>
+        </div>
       ) : (
         <div className="image fs-3 text-white inline-flex mx-2">
           <i className="far fa-bell"></i>
@@ -38,23 +41,21 @@ function Notification({ id }: { id: String }) {
       <div className="w-100">
         <div className="d-flex justify-content-between w-100">
           <h5
-            className="text-serif fw-bold mt-1 m-0 "
+            className="text-serif fw-bold mt-1 m-0 my-auto"
             style={{ position: "relative" }}
           >
             {data.getNotification.title}
           </h5>
-          <span
-              style={{fontSize: "10px" }}
-            >
-              {date}
-            </span>
+          <span style={{ fontSize: "10px" }}>{date}</span>
         </div>
-        <p
-          className="m-0 text-serif2"
-          style={{ position: "relative", top: "-3px" }}
-        >
-          {data.getNotification.description}
-        </p>
+        {data.getNotification.description && (
+          <p
+            className="m-0 text-serif2"
+            style={{ position: "relative", top: "-3px" }}
+          >
+            {data.getNotification.description}
+          </p>
+        )}
       </div>
     </div>
   ) : null;

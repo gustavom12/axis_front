@@ -1,10 +1,13 @@
 import { useMutation } from "@apollo/client";
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import QuizQueries from "../../graphqueries/quiz";
 import Message from "../a_mini_components/message";
 import TextHover from "../a_mini_components/textOnHover";
+import UploadImage from "../CreateHomeworkPage/uploadImage/uploadImage";
+import Loader from "../loader/loader";
 import "./CreateQuiz.sass";
 import QuizPage from "./quizPage/QuizPage";
 import SuccessfulUpload from "./successfulUpload";
@@ -46,7 +49,9 @@ function CreateQuiz() {
     ],
   });
   const [UploadDiv, setUploadDiv] = useState(false);
-  const [Loading, setLoading] = useState(false)
+  const [Loading, setLoading] = useState(false);
+  const [loadingImage, setLoadingImage] = useState(false);
+  const [image, setImage] = useState("");
   const onsubmit = (e: any) => {
     e.preventDefault();
     if (!user._id) {
@@ -80,30 +85,52 @@ function CreateQuiz() {
       }
     });
     if (error) return;
-    const clone = {...Quiz}
-    clone.teacher = user._id
-    setUploadDiv(true)
-    setLoading(true)
-    createQuiz({ variables: { Quiz:clone } })
+    const clone = { ...Quiz };
+    clone.teacher = user._id;
+    setUploadDiv(true);
+    setLoading(true);
+    createQuiz({ variables: { Quiz: clone } })
       .then((data: any) => {
-        setLoading(false)
+        setLoading(false);
       })
       .catch((err) => console.log({ err }));
   };
+  //change imagepresentation
+  useEffect(() => {
+    if (image === "") return;
+    setQuiz((clone: any) => {
+      clone.imagePresentation = image;
+      return { ...clone };
+    });
+  }, [image, setQuiz]);
   return (
     <>
       <form onSubmit={onsubmit}>
         <header className="">
           <div className="d-flex">
+            <UploadImage
+              setUrl={setImage}
+              setLoading={setLoadingImage}
+              id="imagePresentation"
+            />
             {Quiz.imagePresentation !== "" ? (
-              <img
-                src={Quiz.imagePresentation}
-                className="img my-auto"
-                alt=""
-              />
+              <label htmlFor="imagePresentation" className="cursor-pointer">
+                <img
+                  src={Quiz.imagePresentation}
+                  className="img my-auto"
+                  alt=""
+                />
+              </label>
             ) : (
               <div className="img flex my-auto ">
-                <i className="far fa-image"></i>
+                {loadingImage ? (
+                  <Loader />
+                ) : (
+                  <label
+                    className="far fa-image cursor-pointer"
+                    htmlFor="imagePresentation"
+                  ></label>
+                )}
               </div>
             )}
             <div className="d-flex flex-column w-75">
@@ -233,6 +260,8 @@ function CreateQuiz() {
               className="addPage flex mx-auto HoverFather"
               onClick={() => {
                 //aún no disponible
+                setErrorMessage("Función aún no disponible");
+                setTimeout(() => setErrorMessage(""), 3000);
                 return;
                 // setQuiz({
                 //   ...Quiz,

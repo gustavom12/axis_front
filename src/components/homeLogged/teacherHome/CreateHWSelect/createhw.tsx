@@ -72,12 +72,12 @@ function CreateHW() {
             />
           </div>
         </Link>
-        <Link to="/createhw/multiplechoice">
+        <Link to="/home/createhw">
           <div className="icon HoverFather flex">
             <img src={choices} alt="" />
             <TextHover
               message="Crea una tarea solo multiple choice, puedes elegir la opción de que el examen sea evaluado
-            en automático"
+            en automático (aún no disponible)"
               margin="0 270px 0 0"
             />
           </div>

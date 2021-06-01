@@ -56,6 +56,7 @@ export const GetUser = () => async (dispatch: any, getState: any) => {
       }
     } catch (error) {
       console.log(error);
+      window.location.href = "/"
     }
 };
 

@@ -1,9 +1,11 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CoursesQueries from "../../graphqueries/courses";
+import UserQueries from "../../graphqueries/users";
 import Loader from "../loader/loader";
 import SendNotification from "../sendNotification/sendNotification";
 import "./CoursePage.sass";
@@ -16,19 +18,36 @@ function CoursePage({
     to: { img: "", id: "", fullname: "" },
     from: { img: "", id: "", fullname: "" },
   });
+  const [students, setStudents] = useState([])
   const user = useSelector((store:any)=>store.user.user)
   console.log(user)
-  const { data, loading } = useQuery(CoursesQueries.GET_COURSES_BY_IDS, {
+  const query = ids ? CoursesQueries.GET_COURSES_BY_IDS : UserQueries.getStudents
+  const { data, loading } = useQuery(query, {
     variables: {
       ids,
     },
   });
+  console.log(data)
+  useEffect(()=>{
+    if(!data)return
+    if(data.getCoursesById){
+      let students:any = []
+      data.getCoursesById.forEach((el:any)=> {
+        students = [...students, ...el.Students]
+      });
+      setStudents(students)
+      console.log({students})
+      return
+    }else{
+      setStudents(data.getStudents)
+    }
+  },[data])
   return (
     <section
-      className="coursePage flex w-100"
+      className="coursePage flex w-100 mb-auto"
       style={{
         minHeight: "89vh",
-        padding: "20px 10px",
+        padding: "10px 10px",
       }}
     >
       {sendNotification?.to?.fullname && (
@@ -39,14 +58,14 @@ function CoursePage({
           setToFrom={setSendNotification}
         />
       )}
-      <div className="curso w-100">
+      <div className="curso w-100" style={{overflowY:"scroll"}} >
         {loading ? (
           <div className="flex mt-5">
             <Loader></Loader>
           </div>
         ) : (
           <div className="data w-100">
-            <div className="titles text-center container w-100 mt-4 text-serif fw-bold">
+            <div className="titles text-center container w-100 mt-2 text-serif fw-bold">
               <div className="row w-100 ">
                 <h5 className="col mx-auto ">Student</h5>
                 <h5 className="col-1 mx-auto">Exp</h5>
@@ -55,17 +74,15 @@ function CoursePage({
                 <div className="col mx-auto"></div>
               </div>
             </div>
-            {data?.getCoursesById.map((getCourse: any, i: any) => (
-              <div key={i}>
                 <div className="students">
-                  {getCourse.Students.map((student: any) => {
+                  {students?.map((student: any) => {
                     let notDone = 0;
                     student.homework.forEach((hw: any) => {
                       if (hw.alreadyDone) notDone += 1;
                     });
                     return (
                       <div className="student" key={student._id}>
-                        <div className="text-center container w-100 py-3 text-serif fw-bold">
+                        <div className="text-center container w-100 py-2 text-serif fw-bold">
                           <div className="row w-100 ">
                             <h6 className="col name fw-bold mx-auto text-capitalize d-flex align-center ">
                               {student.image !== null ? (
@@ -89,7 +106,8 @@ function CoursePage({
                             </h6>
                             <div className="flex col mx-auto">
                               <button
-                                className="btn btn-blue2 mb-auto col fw-bold"
+                                className="btn btn-blue2 py-2 mb-auto col fw-bold"
+                                style={{fontSize:"14px"}}
                                 onClick={() =>
                                   setSendNotification({
                                     to: {
@@ -105,7 +123,7 @@ function CoursePage({
                                   })
                                 }
                               >
-                                Enviar notificación
+                                Enviar mensaje
                               </button>
                             </div>
                             <div className="flex col mx-auto">
@@ -122,8 +140,6 @@ function CoursePage({
                     );
                   })}
                 </div>
-              </div>
-            ))}
           </div>
         )}
       </div>

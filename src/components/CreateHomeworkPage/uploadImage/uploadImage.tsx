@@ -1,7 +1,7 @@
 import React from "react";
 function UploadImage({ setUrl,id, setLoading }: { setUrl: any, id: string, setLoading?: any}) {
   const backend: any = process.env.REACT_APP_URL?.replace("/graphql", "") ;
-  const backendURL:any = `${backend}/upload/image`
+  const backendURL:any = `${backend}/upload/image`.replace(" ", "")
   return (
     <input
       type="file"
@@ -19,14 +19,17 @@ function UploadImage({ setUrl,id, setLoading }: { setUrl: any, id: string, setLo
           method: 'POST',
           body: formData,
         })
-          .then((data:any)=>data.json())
+          .then((data:any)=>{
+            console.log({data})
+            return data.json()
+          })
           .then(json=>{
             setUrl(json.url)
             console.log(json)
             if(setLoading)setLoading(false)
           })
           .catch(err =>{
-            console.log(err)
+            console.log({err})
             if(setLoading)setLoading(false)})
         }}
     />

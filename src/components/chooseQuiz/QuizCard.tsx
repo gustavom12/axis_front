@@ -1,11 +1,15 @@
 import React from "react";
+// import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
 function QuizCard({ Quiz }: { Quiz: any }) {
   console.log(Quiz);
+  // const user = useSelector((store:any)=>store.user.user)
+
   return (
     <Link
       to={`/quiz?id=${Quiz._id}`}
-      className="QuizCard flex text-center flex-column mx-auto"
+      className={`QuizCard flex text-center flex-column mx-auto`}
     >
       {Quiz.imagePresentation === "" ? (
         <div className="bg-white imgPresentation flex">

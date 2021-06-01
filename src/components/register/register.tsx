@@ -17,6 +17,7 @@ type Inputs = {
   profesor: string;
   fullname: string;
   key: string;
+  accessKey?:string
 };
 
 function Register() {
@@ -29,7 +30,7 @@ function Register() {
   const { data } = useQuery(CoursesQueries.GET_COURSES);
   const [registerTeacher, setRegisterTeacher] = useState(false);
   const [teacherError, setTeacherError] = useState("");
-  const [wrongKEY,setWrongKEY] = useState("");
+  const [wrongKEY, setWrongKEY] = useState("");
   useEffect(() => {
     document.querySelector("nav")?.classList.add("d-none");
     return () => {
@@ -37,24 +38,27 @@ function Register() {
     };
   }, []);
 
-  useEffect(() => {
-  }, [data]);
+  useEffect(() => {}, [data]);
   const onSubmit = (input: Inputs) => {
     const encryptedPass = encrypt(input.ppssww);
     if (registerTeacher) {
-      if(input.key !== "axis2994107678"){
-        setWrongKEY("Teacher key is incorrect")
-        setTimeout(() => {setWrongKEY("")},4000)
+      if (input.key !== "axis2994107678") {
+        setWrongKEY("Teacher key is incorrect");
+        setTimeout(() => {
+          setWrongKEY("");
+        }, 4000);
         return;
       }
-      const ppssww = encrypt(input.ppssww)
-      RegisterTeacher({variables:{
-        fullname: input.fullname,
-        cursos: [],
-        email: input.email,
-        ppssww
-      }})
-        .then((res:any) =>{
+      const ppssww = encrypt(input.ppssww);
+      RegisterTeacher({
+        variables: {
+          fullname: input.fullname,
+          cursos: [],
+          email: input.email,
+          ppssww,
+        },
+      })
+        .then((res: any) => {
           if (res) {
             //Si el usuario es registrado correctamente, se almacenan su datos en el localStorage
             const user = { email: input.email, ppssww: encryptedPass };
@@ -66,10 +70,14 @@ function Register() {
             document.location.pathname = "/home";
           }
         })
-        .catch((err)=>{
-          setTeacherError(err.graphQLErrors[0].message)
-        })
+        .catch((err) => {
+          setTeacherError(err.graphQLErrors[0].message);
+        });
       return;
+    }
+    if(input.course === "Selecciona tu curso"){
+      setWrongKEY("Debes seleccionar un curso")
+      return
     }
     registerUser({
       variables: {
@@ -78,6 +86,7 @@ function Register() {
         course: input.course,
         profesor: input.profesor,
         fullname: input.fullname,
+        accessKey: input.accessKey
       },
     })
       .then((res) => {
@@ -92,11 +101,13 @@ function Register() {
           document.location.pathname = "/home";
         }
       })
-      .catch((err) => {//this is only to skip the crash of app when error occurs
+      .catch((err) => {
+        console.log(err)
+        //this is only to skip the crash of app when error occurs
       });
   };
   return (
-    <div className="login d-flex">
+    <div className="login d-flex py-3">
       <i className="far fa-dot-circle"></i>
       <i className="fas fa-book book1"></i>
       <i className="fas fa-pen-nib"></i>
@@ -204,7 +215,7 @@ function Register() {
                 })}
                 name="course"
               >
-                <option selected>Selecciona tu curso</option>
+                <option selected value={undefined} >Selecciona tu curso</option>
                 {data?.getCourses?.map((course: any, i: any) => (
                   <option key={i} value={course._id}>
                     {course.name}({course.Teachers[0]?.fullname.slice(0, 7)})
@@ -213,6 +224,21 @@ function Register() {
               </select>
               <div className="text-danger"> {errors.course?.message} </div>
             </div>
+            <div className="input-group mb-3">
+          <input
+            required
+            ref={register({
+              required: {
+                value: true,
+                message: "Acess KEY es requerido",
+              },
+            })}
+            name="accessKey"
+            type="password"
+            className="form-control w-100"
+            placeholder="Access KEY (consultar con el profesor)"
+          />
+        </div>
           </div>
         )}
 
@@ -225,7 +251,9 @@ function Register() {
           />
           <label className="form-check-label" htmlFor="flexCheckChecked">
             Al iniciar sesión, estás aceptando los{" "}
-            <div className="text-primary">Terminos y condiciones</div>
+            <a href="./" className="text-primary">
+              Terminos y condiciones
+            </a>
           </label>
         </div>
         <div className="text-danger text-center">
@@ -240,7 +268,7 @@ function Register() {
           Iniciar Sesión
         </button>
         <div
-          style={{ height: 0, cursor: 'pointer' }}
+          style={{ height: 0, cursor: "pointer" }}
           className="text-mini p-absolute mt-3 h-0 text-primary"
           onClick={() => {
             registerTeacher

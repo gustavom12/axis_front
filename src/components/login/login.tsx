@@ -107,7 +107,7 @@ function Login() {
           />
           <label className="form-check-label " htmlFor="flexCheckChecked">
             Al iniciar sesión, estás aceptando los{" "}
-            <div className="text-primary" style={{cursor: "pointer"}}>Terminos y condiciones</div>
+            <a className="text-primary" href="./">Terminos y condiciones</a>
           </label>
         </div>
         <div className="text-danger">

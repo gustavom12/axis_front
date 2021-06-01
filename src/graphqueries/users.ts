@@ -8,6 +8,7 @@ const UserQueries = {
       $email: String!
       $profesor: ID
       $ppssww: String!
+      $accessKey: String!
     ) {
       registerStudent(
         user: {
@@ -17,6 +18,7 @@ const UserQueries = {
           profesor: $profesor
           ppssww: $ppssww
         }
+        accessKey: $accessKey
       )
     }
   `,
@@ -44,6 +46,7 @@ const UserQueries = {
         image
         exp
         homework
+        doneQuizes
         fullname
         course
         email
@@ -51,6 +54,21 @@ const UserQueries = {
       }
     }
   `,
+  getStudents: gql`
+  query{
+    getStudents{
+      _id
+      image
+      exp
+      homework
+      doneQuizes
+      fullname
+      course
+      email
+      userType
+    }
+  }
+`,
   GET_TEACHER: gql`
     query($email: String!) {
       getTeacher(email: $email) {
@@ -71,6 +89,9 @@ const UserQueries = {
       ppssww
       alumnos
       fullname
+      courses
+      createdQuizes
+      image
     }
   }
 `,

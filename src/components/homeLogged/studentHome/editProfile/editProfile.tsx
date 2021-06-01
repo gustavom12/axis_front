@@ -54,7 +54,7 @@ function EditProfile({
             <UploadImage setUrl={setProfileImg} id="profileImg" />
             <label
               htmlFor="profileImg"
-              className="img mx-auto flex fw-bold text-white text-capitalize HoverFather"
+              className="img mx-auto flex fw-bold text-white text-capitalize HoverFather bg-primary notImage"
             >
               {name}
               <div className="onHover flex" style={{}}>

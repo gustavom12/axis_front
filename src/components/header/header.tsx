@@ -26,7 +26,7 @@ function HeaderComponent() {
         id="navbarToggleExternalContent"
       >
         <div className="text-center">
-          <Link to="/register">
+          <Link to="/quizes">
             <h6
               className=" h4 py-3"
               // data-bs-toggle="collapse"
@@ -36,10 +36,10 @@ function HeaderComponent() {
               // aria-label="Toggle navigation"
               // onClick={toggle("#nav-icon2")}
             >
-              Register
+              Quizes
             </h6>
           </Link>
-          <Link to="">
+          <Link to="/home">
             <h6
               className=" h4 py-3"
               // data-bs-toggle="collapse"

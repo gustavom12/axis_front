@@ -1,8 +1,25 @@
+@import ../../../../variables
 .notDone
   background: #fff
   padding: 16px 30px
   border-radius: 15px
   min-height: 300px !important
+  max-height: 400px
+  overflow-y: auto
+  &::-webkit-scrollbar
+    width: 9px
+    height: 9px
+  &::-webkit-scrollbar-thumb
+    background: linear-gradient(13deg, $darkmain 14%, $main 46%)
+    border-radius: 6px
+
+  &::-webkit-scrollbar-thumb:hover
+    background: linear-gradient(13deg, $darkmain 14%,$main 64%)
+
+  &::-webkit-scrollbar-track
+    background: #ffffff
+    border-radius: 7px
+    box-shadow: inset 7px 10px 12px #f0f0f0
   .homework:hover
     transition: all 0.3s linear
     background: #00000010
@@ -27,9 +44,11 @@
       transition: all linear 0.3s
       background: #00000020
 
-@media (max-width: 420px)
+@media (max-width: 520px)
   .notDone
-    padding: 15px 12px
+    padding: 15px 0px !important
+    h2
+      margin-left: 15px
     .homework
       padding: 12px 2px
       padding-left: 6px

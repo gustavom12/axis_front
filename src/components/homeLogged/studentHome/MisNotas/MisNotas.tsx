@@ -16,7 +16,7 @@ function MisNotas({ homeworksDone }: { homeworksDone: any }) {
           <h2 className="text-main my-4">Aún no tienes notas disponibles</h2>
         </div>
       ) : (
-        homeworksDone.map((hw: any) => (
+        [...homeworksDone].reverse().map((hw: any) => (
           <Notas done_hw_id={hw.done_homework_id} key={hw.done_homework_id} />
         ))
       )}
