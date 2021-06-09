@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetUser } from "../../redux/userDuck";
 import StudentLoggedbtns from "./stndbtns"
 import Teacherbtms from "./teacherbtns"
+import * as AOS from "aos"
+import "aos/dist/aos.css";
 
 function HeaderComponent() {
   const user = useSelector((store: any) => store.user.user);
@@ -19,6 +21,15 @@ function HeaderComponent() {
     };
     getX();
   }, [dispatch]);
+  useEffect(()=>{
+    AOS.init({
+      duration: 800, // values from 0 to 3000, with step 50ms
+      easing: 'ease-in-out', // default easing for AOS animations
+      once: true,
+      offset: 50,
+      anchorPlacement: 'bottom-bottom'
+    })
+  },[])
   return (
     <div>
       <div

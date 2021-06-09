@@ -20,7 +20,7 @@ import CorrectedHomework from "./components/viewCorrectedHomework/CorrectedHomew
 import CreateQuiz from "./components/createQuiz/CreateQuiz";
 import ChooseQuiz from "./components/chooseQuiz/chooseQuiz";
 import DoQuiz from "./components/doQuiz/DoQuiz";
-const url = config.url;
+const url:any = config.url;
 
 const client = new ApolloClient({
   cache: new InMemoryCache({

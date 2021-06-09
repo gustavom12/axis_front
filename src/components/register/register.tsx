@@ -265,7 +265,7 @@ function Register() {
           {loading ? <Loader /> : null}
         </div>
         <button type="submit" className="fw-bold mt-4 w-75 btn btn-main">
-          Iniciar Sesión
+          Registrarme
         </button>
         <div
           style={{ height: 0, cursor: "pointer" }}
