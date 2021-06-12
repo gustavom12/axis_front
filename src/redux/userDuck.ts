@@ -38,7 +38,7 @@ export const GetUser = () => async (dispatch: any, getState: any) => {
           `,
         }),
       });
-      setTimeout(()=>{ window.location.href = "/" },2500)
+      // setTimeout(()=>{ window.location.href = "/" },2500)
       const userJSON = await userRes.json();
       const user = await userJSON.data.Login
       if (!user) {
