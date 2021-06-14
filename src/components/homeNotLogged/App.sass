@@ -9,14 +9,13 @@ $circleSize: 220px
     border-top-right-radius: calc(#{$circleSize} * 2)
     position: absolute
     z-index: -1
-    transform: rotate(-45deg)
     right: 10%
     top: 17vh
     background: #1800f179
   .fa-dot-circle, .fa-book, .fa-pen-nib
     // transform: scaleX(1.5)
     color: #00000008
-    position: absolute
+    position: fixed
     z-index: -1
   .fa-dot-circle
     font-size: 80vh
@@ -40,7 +39,7 @@ $circleSize: 220px
     right: 3%
     top: 40vh
   .homeLeft
-    padding: 0 120px
+    padding: 0 80px
     // position: relative
     // top: -70px
   h2
@@ -67,6 +66,7 @@ $circleSize: 220px
       margin-right: 18%
 .homeIcons
   align-items: flex-start
+  display: flex
   padding: 0 25px
   i
     font-size: 50px
@@ -107,6 +107,8 @@ $circleSize: 220px
         text-align: center
       p
         margin-top: 6vh !important
+        font-size: 20px
+        text-align: center
   .homeIcons
     flex-direction: column !important
     div
@@ -115,3 +117,5 @@ $circleSize: 220px
       i, img
         height: 80px
         font-size: 80px
+
+

@@ -1,0 +1,59 @@
+.explain
+  padding: 0 1.5%
+  margin-top: 50px
+.miniSlides
+  width: 25% !important
+.slide
+  position: relative
+  margin: auto
+  width: 100% !important
+  cursor: pointer
+  transition: all .2s ease-in-out
+  top: 0
+  &:hover
+    top: -5px
+    transition: all 0.2s linear
+    box-shadow: 4px 14px 15px -22px rgba(0,0,0,0.39)
+    -webkit-box-shadow: 4px 14px 15px -22px rgba(0,0,0,0.39)
+    -moz-box-shadow: 4px 14px 15px -22px rgba(0,0,0,0.39)
+  .title
+    position: absolute
+    top: 15px
+    font-size: 35px !important
+  p
+    text-align: center
+  // .title
+  //   font-size: 15px !important
+  // p
+  //   text-align: center
+  //   font-size: 9px
+  img
+    width: 100%
+  &.slide0
+    .title
+      top: 9px
+
+  &.slide1
+    .title
+      top: 0px
+  &.slide2
+    .title
+      top: 0px
+  &.hugeSlide
+    width: 60% !important
+  &.miniSlide
+    width: 100%
+    .title
+      font-size: 15px !important
+    p
+      font-size: 12px
+  &.mobileSlide
+    .title
+      font-size: 29px !important
+      text-align: center !important
+    p
+      font-size: 16px
+
+@media (max-width: 800px)
+  .explain
+    margin-top: 10px

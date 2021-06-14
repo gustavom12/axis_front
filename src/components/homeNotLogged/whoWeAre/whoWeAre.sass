@@ -1,0 +1,102 @@
+$circleSize: 120px
+.WhoWeAre
+  margin-top: 100px
+  position: relative
+  margin-bottom: 60px
+  .students
+    position: relative
+    width: 600px
+    margin: 0 auto
+    padding-bottom: 30px
+    img
+      width: 100%
+    h6
+      padding: 0 20px
+  .aboutCard
+    background: #fff
+    .aptitude
+      border: 6px solid #e7c3d8
+      z-index: 1
+      color: #5e5e5e
+      position: absolute
+      padding: 10px 15px
+      font-size: 15px
+    .aptitude1
+      top: 50px
+      right: -90px
+    .aptitude2
+      top: 220px
+      left: -190px
+    .aptitude3
+      top: 450px
+      right: -230px
+    .circle
+      z-index: -1
+      position: absolute
+      border-radius: 50%
+    .circle1
+      background: #ffe9f6
+      height: 250px
+      width: 250px
+      top: -80px
+      left: -125px
+    .circle2
+      background: #ffe9f6
+      height: 200px
+      width: 200px
+      top: 370px
+      left: -175px
+    .halfcircle
+      height: $circleSize
+      width: calc(#{$circleSize} * 2)
+      border-top-left-radius: calc(#{$circleSize} * 2)
+      border-top-right-radius: calc(#{$circleSize} * 2)
+      transform: rotate(55deg) !important
+      position: absolute
+      z-index: -1
+      background: #ffe9f6
+      right: -170px
+      top: 390px
+    .line
+      height: 150px
+      width: 1px
+      margin: 0 auto auto auto
+      border-radius: 4px
+      background: #727272
+      position: relative
+      left: -2px
+    h2
+      font-weight: 900
+      margin-bottom: 2px
+    p
+      font-size: 18px
+    .Icons
+      margin-top: 25px
+      justify-content: space-around
+      width: 100%
+      padding: 0 10%
+      color: #ddd
+
+@media (max-width: 700px)
+  .WhoWeAre
+    .students
+      padding: 10px 15px
+      width: 97%
+      h6
+        flex-direction: column
+      .line
+        display: none
+      p
+        font-size: 16px
+        text-align: center
+        width: 100% !important
+    .aboutCard
+      padding: 0
+    .aptitude
+      display: none
+    .Icons
+      .fab
+        height: 40px
+        width: 40px
+        font-size: 22px
+

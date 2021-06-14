@@ -1,0 +1,108 @@
+.Icons
+  display: flex
+  position: relative
+  .fab:hover
+    transition: all .4s linear
+    text-decoration: none
+    color: white
+    transform: scale(1.1)
+  .fab
+    transition: all .4s linear
+    margin: 0 auto
+    text-decoration: none
+    transform: scale(1.1)
+    font-size: 30px
+    color: white
+    margin: 0 auto
+    height: 50px
+    width: 50px
+    background: #c4c4c4
+    display: flex
+  .fa-instagram:hover
+    background: #ff8839
+  .fa-facebook-messenger:hover
+    background: #007bff
+  .fa-facebook:hover
+    background: #0131aa
+  .fa-whatsapp:hover
+    background: #00a300
+
+.btn-1
+  font-weight: 100
+
+  svg
+    height: 100%
+    left: 0
+    position: absolute
+    top: 0
+    width: 100%
+
+  rect
+    fill: none
+    stroke: #fff
+    stroke-width: 2
+    stroke-dasharray: 0, 310
+    transition: all 0.35s linear
+
+.btn-1:hover
+  letter-spacing: 1px
+  rect
+    stroke-width: 5
+    stroke-dasharray: 422, 0
+    stroke-dashoffset: 48
+    transition: all 1.5s cubic-bezier(0.19, 0.5, 0.22, 0.5)
+
+.fadingEffect
+  position: absolute
+  top: 0
+  bottom: 0
+  right: 0
+  width: 100%
+  background: #171c28
+  -moz-animation: showHide 2.5s ease-in forwards
+  -webkit-animation: showHide 2.5s ease-in forwards
+  -ms-animation: showHide 2.5s ease-in forwards
+  -o-animation: showHide 2.5s ease-in forwards
+  animation: showHide 2.5s ease-in forwards
+
+@-webkit-keyframes showHide
+  0%
+    width: 100%
+  100%
+    width: 0%
+
+@-moz-keyframes showHide
+  0%
+    width: 100%
+  100%
+    width: 0%
+@keyframes showHide
+  0%
+    width: 100%
+  100%
+    width: 0%
+
+@keyframes fadeIn
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@-moz-keyframes fadeIn
+  0%
+  opacity: 0
+  100%
+  opacity: 1
+
+@-webkit-keyframes fadeIn
+  0%
+  opacity: 0
+  100%
+  opacity: 1
+
+@-o-keyframes fadeIn
+  0%
+  opacity: 0
+  100%
+  opacity: 1
+

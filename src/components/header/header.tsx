@@ -23,7 +23,7 @@ function HeaderComponent() {
   }, [dispatch]);
   useEffect(()=>{
     AOS.init({
-      duration: 800, // values from 0 to 3000, with step 50ms
+      duration: 1100, // values from 0 to 3000, with step 50ms
       easing: 'ease-in-out', // default easing for AOS animations
       once: true,
       offset: 50,
@@ -101,7 +101,7 @@ function HeaderComponent() {
             </div>
           </button>
           <Link to="" className="mr-auto">
-            <h1 className="text-dark fw-bold">AXIS</h1>
+            <h1 className="text-dark fw-bold">NAME</h1>
           </Link>
           <div className="login-register flex">
             {!user.email ? (
