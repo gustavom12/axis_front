@@ -7,8 +7,8 @@ const QuizQueries = {
     }
   `,
   getQuizes: gql`
-    query {
-      getQuizes {
+    query ($limit:Int){
+      getQuizes(limit: $limit) {
         title
         description
         dificulty

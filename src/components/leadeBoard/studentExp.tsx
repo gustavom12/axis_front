@@ -1,15 +1,7 @@
-import React, { useEffect, useState } from "react";
 import lead from "./wreath.svg"
 import lead2 from "./wreath (1).png"
 import lead3 from "./wreath (2).png"
 function StudentExp({ student, index,leader }: { student: any, index: number, leader:boolean }) {
-  const [homeworksDone, setHomeworksDone] = useState(0)
-  useEffect(() => {
-    if(!student.exp)return;
-    student?.homework.forEach((el: any) => {
-      if (el.alreadyDone) setHomeworksDone(el => el + 1)
-    })
-  }, [student, setHomeworksDone])
   // console.log(index,student.exp)
   if (leader) return (
     <div className={`first w-100 flex flex-column text-center leader is${index}` } >
@@ -39,7 +31,9 @@ function StudentExp({ student, index,leader }: { student: any, index: number, le
         <h5 className="text-serif my-auto">{index + 3}</h5>
         {
           !student?.image ?
-            <div className="img my-auto"></div>
+            <div className="img my-auto text-serif2 fs-2 flex text-white">
+              <span style={{position:"relative", top:"-3px"}}>{student?.fullname?.split("")[0]}</span>
+            </div>
             :
             <img className="img" src={student?.image} alt="" />
         }

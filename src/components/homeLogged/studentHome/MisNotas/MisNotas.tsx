@@ -10,7 +10,7 @@ import "./MisNotas.sass";
 function MisNotas({ homeworksDone }: { homeworksDone: any }) {
   return (
     <section className="w-100 notDone misNotas">
-      <h2 className="fw-bold text-serif"> Mis Notas </h2>
+      <h4 className="fw-bold text-serif"> Mis Notas </h4>
       {homeworksDone === 0 ? (
         <div className="w-100 flex">
           <h2 className="text-main my-4">Aún no tienes notas disponibles</h2>

@@ -40,25 +40,23 @@ function HeaderComponent() {
           <Link to="/quizes">
             <h6
               className=" h4 py-3"
-              // data-bs-toggle="collapse"
-              // data-bs-target="#navbarToggleExternalContent"
-              // aria-controls="navbarToggleExternalContent"
-              // aria-expanded="false"
-              // aria-label="Toggle navigation"
-              // onClick={toggle("#nav-icon2")}
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarToggleExternalContent"
+              aria-controls="navbarToggleExternalContent"
+              aria-label="Toggle navigation"
+              onClick={toggle("#nav-icon2")}
             >
               Quizes
             </h6>
           </Link>
-          <Link to="/home">
+          <Link to="/">
             <h6
               className=" h4 py-3"
-              // data-bs-toggle="collapse"
-              // data-bs-target="#navbarToggleExternalContent"
-              // aria-controls="navbarToggleExternalContent"
-              // aria-expanded="false"
-              // aria-label="Toggle navigation"
-              // onClick={toggle("#nav-icon2")}
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarToggleExternalContent"
+              aria-controls="navbarToggleExternalContent"
+              aria-label="Toggle navigation"
+              onClick={toggle("#nav-icon2")}
             >
               Home
             </h6>
@@ -67,12 +65,11 @@ function HeaderComponent() {
             <h6
               className=" h4 py-3"
               //desabilitado por react build problems
-              // data-bs-toggle="collapse"
-              // data-bs-target="#navbarToggleExternalContent"
-              // aria-controls="navbarToggleExternalContent"
-              // aria-expanded="false"
-              // aria-label="Toggle navigation"
-              // onClick={toggle("#nav-icon2")}
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarToggleExternalContent"
+              aria-controls="navbarToggleExternalContent"
+              aria-label="Toggle navigation"
+              onClick={toggle("#nav-icon2")}
             >
               Login
             </h6>

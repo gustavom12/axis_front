@@ -1,10 +1,10 @@
 import { useQuery } from "@apollo/client";
 import React, { useEffect, useState } from "react";
 import CoursesQueries from "../../graphqueries/courses";
+import Loader from "../loader/loader";
 import './leadeBoard.sass'
 import StudentExp from "./studentExp";
 import trophy from "./winner.svg"
-import laurel from "./laurel.svg"
 function LeadeBoard({ course }: { course: string }) {
   const { data, loading } = useQuery(CoursesQueries.GET_COURSE, {
     variables: { id: course }
@@ -32,19 +32,21 @@ function LeadeBoard({ course }: { course: string }) {
         </div>
         <img src={trophy} alt="" />
       </div>
-      <div style={{background:"#0057ff99"}}>
-        <div className="leaders">
-          {/* <i className="fas fa-trophy bg-icon" ></i> */}
-          {leaders.map((student: any, i: number) =>
-            <StudentExp student={student} index={i} leader={true} key={i} />
-          )}
+      {loading ? <div className="flex"> <Loader /> </div> :
+        <div style={{ background: "#0057ff99" }}>
+          <div className="leaders">
+            {/* <i className="fas fa-trophy bg-icon" ></i> */}
+            {leaders.map((student: any, i: number) =>
+              <StudentExp student={student} index={i} leader={true} key={i} />
+            )}
+          </div>
+          <div className="notLeaders">
+            {notLeaders.map((student: any, i: any) =>
+              <StudentExp student={student} index={i} leader={false} key={i} />
+            )}
+          </div>
         </div>
-        <div className="notLeaders">
-          {notLeaders.map((student: any, i: any) =>
-            <StudentExp student={student} index={i} leader={false} key={i} />
-          )}
-        </div>
-      </div>
+      }
     </div>
   )
 }

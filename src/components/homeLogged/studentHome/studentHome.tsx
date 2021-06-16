@@ -12,6 +12,7 @@ import { useState } from "react";
 import EditProfile from "./editProfile/editProfile";
 import Notifications from "./notifications/Notifications";
 import LeadeBoard from "../../leadeBoard/leadeBoard";
+import RecomendeQuizzes from "./QuizzesRecomend/recomendedQuizzes";
 function StundentHome() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -38,7 +39,6 @@ function StundentHome() {
         style={{
           background: "#a8bebe54",
           minHeight: "92vh",
-          paddingBottom: "7vh"
         }}
       >
         <div className="user d-flex">
@@ -105,7 +105,7 @@ function StundentHome() {
           </div>
         </div>
         <div className="homeworksContainer p-1 w-100 mt-4">
-          <div className="mx-auto homeworkRow flex flex-column">
+          <div className="mx-auto homeworkRow flex-column">
             <Myhomeworks
               homeworksNotDoneLength={homeworksNotDoneLength}
               setHomeworksNotDoneLength={setHomeworksNotDoneLength}
@@ -121,6 +121,7 @@ function StundentHome() {
                 (hw: any) => hw.alreadyDone === true
               )}
             />
+            <RecomendeQuizzes/>
           </div>
         </div>
         <div className="flex ">

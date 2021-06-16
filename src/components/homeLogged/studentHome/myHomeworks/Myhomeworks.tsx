@@ -14,7 +14,7 @@ function Myhomeworks({
   return (
     <>
       <section className="notDone w-100 mx-1">
-        <h2 className="fw-bold text-serif "> Tareas Pendientes </h2>
+        <h4 className="fw-bold text-serif "> Tareas Pendientes </h4>
         {homeworksNotDoneLength === 0 ? (
           <div className="w-100 flex">
             <h2 className="text-main my-4">No tienes tareas pendientes</h2>

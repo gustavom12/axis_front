@@ -47,9 +47,9 @@ function App() {
             con la mejor asistencia a alumnos desde sus hogares de la manera más
             divertida e innovadora.
           </p>
-          <Link to="/register" className="w-100" data-aos="fade-right" data-aos-delay="550">
+          <Link to="/login" className="w-100" data-aos="fade-right" data-aos-delay="550">
             <button className="btn btn-blue mt-4 mr-auto w-75 fw-bold">
-              Empezar ahora
+              Iniciar sesión
             </button>
           </Link>
         </div>
