@@ -40,8 +40,10 @@ $background: #0057ff85
     height: 43px
     margin-left: 20px
   .homeworksContainer
-    .homeworkContainer
-      width: 45%
+    display: grid
+    grid-template-columns: 1fr 1fr
+    .homeworkRow
+      width: 92%
 
 @media (max-width: 960px)
   .studentHome
@@ -61,8 +63,8 @@ $background: #0057ff85
     .misNotas
       margin-top: 40px
     .homeworksContainer
-      flex-direction: column
-      .homeworkContainer
+      grid-template-columns: 1fr
+      .homeworkRow
         width: 90%
 
 @media (max-width: 620px)
@@ -127,5 +129,5 @@ $background: #0057ff85
   .studentHome
     .homeworksContainer
       flex-direction: column
-      .homeworkContainer
+      .homeworkRow
         width: 98%

@@ -13,7 +13,7 @@ function Myhomeworks({
 }) {
   return (
     <>
-      <section className="notDone mx-1">
+      <section className="notDone w-100 mx-1">
         <h2 className="fw-bold text-serif "> Tareas Pendientes </h2>
         {homeworksNotDoneLength === 0 ? (
           <div className="w-100 flex">

@@ -1,0 +1,111 @@
+@import ../../variables
+.leadeBoard
+  padding: 0 !important
+  position: relative
+  overflow-x: hidden
+
+  .title
+    position: relative
+    img
+      height: 30px
+      width: 30px
+  .trophies
+    padding: 0 30px
+    left: 0
+    img
+      width: 50px
+      height: 50px
+  .bg-icons
+    position: absolute
+  .notLeaders
+    padding: 0 30px !important
+    border-top-left-radius: 30px
+    border-top-right-radius: 30px
+    background: #fff
+  .leaders
+    padding: 35px 0 10px 0
+    display: grid
+    max-width: 100%
+    color: #fff
+    grid-template-columns: 1fr 1fr 1fr
+  .leader
+    .images
+      position: relative
+      .exp
+        position: absolute
+        top: 0
+        margin-right: 5px
+        background: #ffffff59
+        border-radius: 5px
+        z-index: 1
+        span
+          position: relative
+          left: -3px
+    .leadImage
+      width: 100px
+      height: 100px
+      border-radius: 50%
+    .img
+      position: absolute
+      border: none
+      height: 75px
+      width: 75px
+    &.is0
+      position: relative
+      top: -20px
+      grid-column-start: 2
+      grid-column-end: 3
+      grid-row-start: 1
+      grid-row-end: 2
+      .leadImage
+        box-shadow: 2px 20px 27px -14px #ffe600ee
+        -webkit-box-shadow: 2px 20px 27px -14px #ffe600ee
+        -moz-box-shadow: 2px 20px 27px -14px #ffe600ee
+      .fullname
+        margin-top: 6px !important
+    &.is1
+      position: relative
+      top: -3px
+      grid-column-start: 1
+      grid-column-end: 2
+      grid-row-start: 1
+      grid-row-end: 2
+    &.is2
+      grid-column-start: 3
+      grid-column-end: 4
+      grid-row-start: 1
+      grid-row-end: 2
+  .studentExp
+    padding: 10px
+    cursor: pointer
+    transition: all linear .3s
+    border-bottom: 1px solid #d8d8d8
+    .img
+      height: 45px
+      width: 45px
+      border-radius: 50%
+      border: 2px solid $primary
+      margin: 0 5px 0 10px
+    &:hover
+      transform: scale(1.002)
+      transition: all linear .3s
+
+@media (max-width: 500px)
+  .leadeBoard
+    .leader
+      .leadImage
+        width: 82px
+        height: 82px
+      .img
+        height: 57px
+        width: 57px
+        font-size: 44px !important
+    .notLeaders
+      padding: 0 3px !important
+    .studentExp
+      .img
+        height: 40px
+        width: 40px
+      .fullname
+        font-size: 18px
+

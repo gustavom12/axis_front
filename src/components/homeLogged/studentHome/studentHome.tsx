@@ -11,6 +11,7 @@ import MisNotas from "./MisNotas/MisNotas";
 import { useState } from "react";
 import EditProfile from "./editProfile/editProfile";
 import Notifications from "./notifications/Notifications";
+import LeadeBoard from "../../leadeBoard/leadeBoard";
 function StundentHome() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -103,8 +104,8 @@ function StundentHome() {
             </Link>
           </div>
         </div>
-        <div className="d-flex homeworksContainer p-1 w-100 mt-4">
-          <div className="mx-auto homeworkContainer">
+        <div className="homeworksContainer p-1 w-100 mt-4">
+          <div className="mx-auto homeworkRow flex flex-column">
             <Myhomeworks
               homeworksNotDoneLength={homeworksNotDoneLength}
               setHomeworksNotDoneLength={setHomeworksNotDoneLength}
@@ -112,8 +113,9 @@ function StundentHome() {
                 (hw: any) => hw.alreadyDone === false
               )}
             />
+            <LeadeBoard course={user.course} />
           </div>
-          <div className="mx-auto homeworkContainer pb-4">
+          <div className="mx-auto homeworkRow pb-4">
             <MisNotas
               homeworksDone={user.homework?.filter(
                 (hw: any) => hw.alreadyDone === true
