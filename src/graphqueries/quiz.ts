@@ -14,6 +14,9 @@ const QuizQueries = {
         dificulty
         imagePresentation
         _id
+        pages {
+          title
+        }
       }
     }
   `,
