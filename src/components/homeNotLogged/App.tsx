@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import {  useHistory } from "react-router-dom";
 import "./App.sass";
 import { useDispatch, useSelector } from "react-redux";
 import { GetUser } from "../../redux/userDuck";
@@ -7,7 +7,7 @@ import WhoWeAre from "./whoWeAre/whoWeAre";
 import Explain from "./explain/explain";
 import ExplainMobile from "./explain/explainMobile";
 import soapimg from "./soap.svg";
-
+import { encrypt } from "../../customhooks/encrypt";
 function App() {
   const dispatch = useDispatch();
   const user = useSelector((store: any) => store.user.user);
@@ -27,6 +27,19 @@ function App() {
       historyref.current.push("/home");
     }
   }, [user]);
+  const loginAsTestUser = ()=>{
+    const user = {
+      email: "gustavo.n.mercado2@gmail.com",
+      ppssww: encrypt("123123123"),
+    };
+    localStorage.setItem("_us", JSON.stringify(user));
+    const getX = () => {
+      dispatch(GetUser());
+    };
+    getX();
+    document.location.pathname = "/home";
+      // history.push("/home")
+  }
   return (
     <>
       <div className="HomeNotLogged d-flex w-100 justify-around">
@@ -47,11 +60,11 @@ function App() {
             con la mejor asistencia a alumnos desde sus hogares de la manera más
             divertida e innovadora.
           </p>
-          <Link to="/login" className="w-100" data-aos="fade-right" data-aos-delay="550">
-            <button className="btn btn-blue mt-4 mr-auto w-75 fw-bold">
-              Iniciar sesión
+          <div onClick={loginAsTestUser} className="w-100" data-aos="fade-right" data-aos-delay="550">
+            <button className="btn btn-blue text-serif2 fs-6 mt-4 mr-auto w-75 fw-bold">
+              Utilizar usuario de prueba
             </button>
-          </Link>
+          </div>
         </div>
         <div className="homeRight md-none flex w-50" data-aos="fade-up">
           <img

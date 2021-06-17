@@ -42,7 +42,6 @@ function Login() {
   useEffect(() => {
     //codes runs after "doLogin"
     if (!data) return;
-    console.log({data,decrypt: decrypt(data.Login.ppssww),input: inputs.ppssww});
     if (decrypt(data.Login.ppssww) === inputs.ppssww) {
       const user = {
         email: data.Login.email,
