@@ -41,6 +41,7 @@ function Login() {
   };
   useEffect(() => {
     //codes runs after "doLogin"
+    console.log(data);
     if (!data) return;
     if (decrypt(data.Login.ppssww) === inputs.ppssww) {
       const user = {

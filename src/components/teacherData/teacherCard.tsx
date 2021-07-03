@@ -18,7 +18,7 @@ function TeacherCard({ teacher }: { teacher: any }) {
         {/* <button className="btn btn-blue2 mb-auto col w-75">Enviar mensaje</button>
             <TextHover message="Función aún no disponible" /> */}
       </h6>
-      <h6 className="col mx-auto"> {teacher?.cursos?.length || 0} </h6>
+      <h6 className="col mx-auto"> {teacher?.cursos?.length || 1} </h6>
       <h6 className="col mx-auto"> {teacher?.isAdmin ? "true" : "false"} </h6>
     </div>
   );
