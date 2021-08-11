@@ -302,6 +302,59 @@ const Unit1 = () => {
           </div>
         </div>
       </div>
+      <div className="px-5">
+        <h2 className="fw-bold mt-5 text-center"> Pronombres indefinidos </h2>
+        <h5 className="fw-bold text-center">
+          Este tipo de pronombres sirven para ocupar el lugar y función del sustantivo sin referirse a un sujeto en particular, sino a una entidad. Son los siguientes:
+        </h5>
+        <div className="container indefinidos">
+          <div className="row titles">
+            <div className="col"></div>
+            <div className="col">Body</div>
+            <div className="col">One</div>
+            <div className="col">thing</div>
+            <div className="col">where</div>
+            <div className="col">time</div>
+            <div className="col">how</div>
+          </div>
+          <div className="row">
+            <div className="col title">some</div>
+            <div className="col">Somebody (alguien)</div>
+            <div className="col">Someone (alguien)</div>
+            <div className="col">Something (algo)</div>
+            <div className="col">Somewhere (en algún lugar)</div>
+            <div className="col">Sometime (alguna vez)</div>
+            <div className="col">Somehow (de alguna forma)</div>
+          </div>
+          <div className="row">
+            <div className="col title">Any</div>
+            <div className="col">Anybody (cualquiera)</div>
+            <div className="col">Anyone (cualquiera)</div>
+            <div className="col">Anything (cualquier cosa)</div>
+            <div className="col">Anywhere (en cualquier lugar)</div>
+            <div className="col">Anytime (en cualquier tiempo)</div>
+            <div className="col">Anyhow (de cualquier forma)</div>
+          </div>
+          <div className="row">
+            <div className="col title">every</div>
+            <div className="col">everybody (todos)</div>
+            <div className="col">everyone (todos)</div>
+            <div className="col">everything (todo)</div>
+            <div className="col">everywhere (en todos lados)</div>
+            <div className="col">everytime (todo el tiempo)</div>
+            <div className="col">No existe </div>
+          </div>
+          <div className="row">
+            <div className="col title">No</div>
+            <div className="col">Nobody (Nadie)</div>
+            <div className="col">Noone (Nada)</div>
+            <div className="col">Nothing (Nada)</div>
+            <div className="col">Nowhere (en ningún lugar)</div>
+            <div className="col">No existe</div>
+            <div className="col">No existe</div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
