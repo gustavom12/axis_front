@@ -98,7 +98,7 @@ function HeaderComponent() {
             </div>
           </button>
           <Link to="" className="mr-auto">
-            <h1 className="text-dark fw-bold">NAME</h1>
+            <h1 className="text-dark fw-bold">English</h1>
           </Link>
           <div className="login-register flex">
             {!user.email ? (

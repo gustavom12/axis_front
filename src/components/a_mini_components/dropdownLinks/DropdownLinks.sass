@@ -1,0 +1,27 @@
+@import ../../../variables
+.DropdownLinks
+  .title
+    display: flex
+    justify-content: space-between
+    align-items: center
+    transition: .2s linear background
+    cursor: pointer
+    padding: 5px 13px
+    border-radius: 4px
+    &:hover
+      transition: .2s linear background
+      background: $secondary
+    i
+      transition: .2s linear all
+  .content
+    display: none
+  &.active
+    .content
+      padding: 7px 15px
+      display: block
+    .title
+      i
+        transition: .2s linear all
+        position: relative
+        top: 3px
+        transform: rotate(90deg)

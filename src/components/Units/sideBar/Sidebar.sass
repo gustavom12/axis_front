@@ -1,0 +1,73 @@
+@import ../../../variables
+.SidebarUnit
+  width: 300px
+  padding: 20px
+  height: calc( 100vh - 60px )
+  border-right: 1px solid #dadde1
+  display: flex
+  flex-direction: column
+  // justify-content: center
+  position: fixed
+  left: 0
+  background: #fff
+  overflow-y: auto
+  .DropdownLinks
+    margin: 7px 0
+  &::-webkit-scrollbar-track
+    box-shadow: 0
+    background: #00000000
+  &::-webkit-scrollbar
+    width: .40em
+
+  &::-webkit-scrollbar-track
+    box-shadow: inset 0 0 6px #888
+    background: #ddd
+
+  &::-webkit-scrollbar-thumb
+    background-color: #0057ff99
+    border-radius:
+  .Link
+    padding: 7px 10px
+    transition: background linear .2s
+    display: block
+    border-radius: 3px
+    color: #606770
+    &:hover
+      transition: background linear .2s
+      color: $primary
+      background: $secondary
+    &.selected
+      transition: background linear .2s
+      background: $secondary
+      color: $primary
+
+@media (max-width: 900px)
+  .Sidebar
+    overflow-x: hidden
+    transition: ease-in-out .3s all
+    width: 0
+  .SidebarContainer
+    transition: ease-in-out .3s all
+    top: 0
+    left: 0
+    opacity: 0
+    visibility: hidden
+    height: 100vh
+    width: 100%
+    z-index: 101
+    position: fixed
+  .SidebarContainer.activeModal
+    opacity: 1
+    visibility: visible
+    transition: ease-in-out .3s all
+    background: rgba(0,0,0,.6)
+    .Sidebar
+      height: 100vh
+      background: #fff
+      width: 80%
+      position: relative
+      transition: ease-in-out .3s all
+      z-index: 999
+      &.active
+        display: flex
+        transition: ease-in-out .3s all

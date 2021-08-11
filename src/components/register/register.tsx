@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import "../login/login.sass";
 import Loader from "../loader/loader";
 import { useForm } from "react-hook-form";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import book from "../login/open-book.svg";
 import UserQueries from "../../graphqueries/users";
 import { encrypt } from "../../customhooks/encrypt";
-import CoursesQueries from "../../graphqueries/courses";
 import { useDispatch } from "react-redux";
 import { GetUser } from "../../redux/userDuck";
 
@@ -27,7 +26,7 @@ function Register() {
     UserQueries.REGISTER_STUDENT
   );
   const [RegisterTeacher] = useMutation(UserQueries.REGISTER_TEACHER);
-  const { data } = useQuery(CoursesQueries.GET_COURSES);
+  // const { data } = useQuery(CoursesQueries.GET_COURSES);
   const [registerTeacher, setRegisterTeacher] = useState(false);
   const [teacherError, setTeacherError] = useState("");
   const [wrongKEY, setWrongKEY] = useState("");
@@ -38,8 +37,8 @@ function Register() {
     };
   }, []);
 
-  useEffect(() => {}, [data]);
   const onSubmit = (input: Inputs) => {
+    console.log("submiting")
     const encryptedPass = encrypt(input.ppssww);
     if (registerTeacher) {
       if (input.key !== "axis2994107678") {
@@ -53,7 +52,7 @@ function Register() {
       RegisterTeacher({
         variables: {
           fullname: input.fullname,
-          cursos: [],
+          // cursos: [],
           email: input.email,
           ppssww,
         },
@@ -75,18 +74,19 @@ function Register() {
         });
       return;
     }
-    if(input.course === "Selecciona tu curso"){
-      setWrongKEY("Debes seleccionar un curso")
-      return
-    }
+    // if(input.course === "Selecciona tu curso"){
+    //   setWrongKEY("Debes seleccionar un curso")
+    //   return
+    // }
+    console.log("wad")
     registerUser({
       variables: {
         email: input.email,
         ppssww: encryptedPass,
-        course: input.course,
-        profesor: input.profesor,
+        course: "61131f41027a2f2bb0aada13",
+        profesor: "6068bd91ce2f1b3b943ac3ed",
+        // accessKey: "1",
         fullname: input.fullname,
-        accessKey: input.accessKey
       },
     })
       .then((res) => {
@@ -102,7 +102,7 @@ function Register() {
         }
       })
       .catch((err) => {
-        console.log(err)
+        console.log({err})
         //this is only to skip the crash of app when error occurs
       });
   };
@@ -132,7 +132,6 @@ function Register() {
                   value: 9,
                   message: "Ingresa un nombre válido",
                 },
-                pattern: /^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)+$/,
               })}
               required
               type="text"
@@ -202,9 +201,9 @@ function Register() {
           </div>
         ) : (
           <div className="input mt-2 w-100">
-            <div className="text-muted">Curso</div>
+            {/* <div className="text-muted">Curso</div> */}
             <div className="input-group mb-3">
-              <select
+              {/* <select
                 className="form-select"
                 aria-label="Default select example"
                 ref={register({
@@ -221,11 +220,11 @@ function Register() {
                     {course.name}({course.Teachers[0]?.fullname.slice(0, 7)})
                   </option>
                 ))}
-              </select>
+              </select> */}
               <div className="text-danger"> {errors.course?.message} </div>
             </div>
             <div className="input-group mb-3">
-          <input
+          {/* <input
             required
             ref={register({
               required: {
@@ -237,7 +236,7 @@ function Register() {
             type="password"
             className="form-control w-100"
             placeholder="Access KEY (consultar con el profesor)"
-          />
+          /> */}
         </div>
           </div>
         )}

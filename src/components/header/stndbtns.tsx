@@ -11,11 +11,11 @@ function StudentLoggedbtns() {
         Home
       </Link>
       <Link
-        to=""
+        to="/units"
         className="underlineHover fw-bold text-dark mx-2 text-serif fs-6"
       >
         {" "}
-        Pagar Online{" "}
+        Unidades
       </Link>
       <Link
         to="/quizes"

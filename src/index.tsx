@@ -20,6 +20,7 @@ import CorrectedHomework from "./components/viewCorrectedHomework/CorrectedHomew
 import CreateQuiz from "./components/createQuiz/CreateQuiz";
 import ChooseQuiz from "./components/chooseQuiz/chooseQuiz";
 import DoQuiz from "./components/doQuiz/DoQuiz";
+import Units from "./components/Units/Units";
 const url:any = config.url;
 
 const client = new ApolloClient({
@@ -38,6 +39,7 @@ ReactDOM.render(
         <Provider store={store}>
           <Header></Header>
           <Switch>
+            <Route path="/units" component={Units} />
             <Route path="/createhw" component={CreateHomeworkPage}/>
             <Route path="/hw" component={ DoHomework } />
             <Route path="/chw" component={ CorrectHomework } />

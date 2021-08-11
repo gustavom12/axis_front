@@ -8,7 +8,6 @@ const UserQueries = {
       $email: String!
       $profesor: ID
       $ppssww: String!
-      $accessKey: String!
     ) {
       registerStudent(
         user: {
@@ -18,21 +17,20 @@ const UserQueries = {
           profesor: $profesor
           ppssww: $ppssww
         }
-        accessKey: $accessKey
       )
     }
   `,
   REGISTER_TEACHER: gql`
     mutation(
       $fullname: String!
-      $cursos: [ID]!
+      # $cursos: [ID]!
       $email: String!
       $ppssww: String!
     ) {
       registerTeacher(
         user: {
           fullname: $fullname
-          cursos: $cursos
+          # cursos: $cursos
           email: $email
           ppssww: $ppssww
         }
