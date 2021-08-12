@@ -1,5 +1,13 @@
 @import ../../../variables
 .Unit1
+  padding: 0 5%
+  .themes
+    .theme
+      border-radius: 5px
+      padding: 10px 30px
+      text-align: center
+      background: $hiperDark
+
   .cheetsheet
     width: 600px
     margin: 0 auto
@@ -40,3 +48,7 @@
       border: 1px solid #ddd
       padding: 10px 0
 
+@media (max-width: 700px)
+  .Unit1
+    .cheetsheet
+      width: 90%

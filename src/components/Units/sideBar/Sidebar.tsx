@@ -8,11 +8,12 @@ function Sidebar({ sideBar, setSideBar }: { sideBar: any, setSideBar: any }) {
     window.addEventListener("click", (e: any) => {
       if (e.target === modalRef.current) {
         e.stopPropagation()
-        setSideBar((val: boolean) => !val)
+        setSideBar((val: boolean) => false)
       }
     })
   }, [setSideBar])
   return (
+    <>
     <div className={`SidebarContainer ${sideBar && "activeModal"}`}
       ref={modalRef}
     >
@@ -23,13 +24,18 @@ function Sidebar({ sideBar, setSideBar }: { sideBar: any, setSideBar: any }) {
         >
           <Link
             className={`Link w-100 `}
-            to="/introduction/temas"
+            to="/units/1/pronouns"
           >
-            Temas
+            Pronombres
           </Link>
         </Dropdown>
       </div>
     </div>
+    <i
+        className="fas fa-bars setSideBarBTN flex"
+        onClick={() => setSideBar((val: boolean) => !val)}
+      ></i>
+    </>
   )
 }
 export default Sidebar
