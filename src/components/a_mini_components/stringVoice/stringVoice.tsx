@@ -1,8 +1,8 @@
 import React, { } from 'react';
 import './stringVoice.sass'
-const StringVoice = ({ children, className, text }: { children: any, className?: any, text: string }) => {
+const StringVoice = ({ children, className, text, flex  = true}: { children: any, className?: any, text: string, flex?:boolean }) => {
   return (
-    <div className={`StringVoice flex ${className}`}>
+    <div className={`StringVoice ${flex ? "flex" : ""} ${className}`}>
       <i
         style={{ position: "relative", top: "-3px" }}
         className="fs-5 far fa-play-circle mx-1 text-primary cursor-pointer"
