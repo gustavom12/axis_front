@@ -16,7 +16,7 @@ function StudentExp({ student, index,leader }: { student: any, index: number, le
         {
           !student?.image ?
             <div className="img my-auto fw-bold text-serif2 flex text-white" style={{fontSize:"70px"}} >
-              <span style={{position:"relative", top:"-5px"}}>{student?.fullname?.split("")[0]}</span>
+              <span style={{position:"relative", top:"0px"}}>{student?.fullname?.split("")[0]}</span>
             </div>
             :
             <img className="img" src={student?.image} alt="" />
