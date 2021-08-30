@@ -1,23 +1,21 @@
 import { useQuery } from "@apollo/client";
 import React, { useEffect, useState } from "react";
-import CoursesQueries from "../../graphqueries/courses";
+import UserQueries from "../../graphqueries/users";
 import Loader from "../loader/loader";
 import './leadeBoard.sass'
 import StudentExp from "./studentExp";
 import trophy from "./winner.svg"
 function LeadeBoard({ course }: { course: string }) {
-  const { data, loading } = useQuery(CoursesQueries.GET_COURSE, {
-    variables: { id: course }
-  })
+  const { data, loading } = useQuery(UserQueries.getStudents,)
   const [leaders, setLeaders] = useState<any>([{}]);
   const [notLeaders, setNotLeaders] = useState<any>([{}]);
   useEffect(() => {
     if (!data) return;
-    const copiedStudents: any = [...data.getCourse.Students]
+    const copiedStudents: any = [...data.getStudents]
     const sorted = copiedStudents.sort(((a: any, b: any) => b.exp - a.exp))
     const leaders = [...sorted]
     const notLeaders = [...sorted]
-    notLeaders.splice(0, 2)
+    notLeaders.splice(0, 3)
     setLeaders(leaders.slice(0, 3))
     setNotLeaders(notLeaders)
   }, [data])

@@ -52,10 +52,10 @@ function App() {
         <div className="homeLeft flex flex-column w-50">
           <h2 className="title mr-auto " data-aos="fade-right" >
             Bienvenido a{" "}
-            <span className="axis fs-1 fw-bold d-inline ">Name</span>!
+            <span className="axis fs-1 fw-bold d-inline ">Clases particulares de inglés</span>!
           </h2>
           <p className="description mt-2 text-serif2 " data-aos="fade-right" data-aos-delay="300" >
-            Años en enseñanza de Inglés de una forma profesional, Efectiva y
+            Enseñanza de Inglés de una forma profesional, Efectiva y
             divertida, 100% adaptada a todas las edades. Ahora también contando
             con la mejor asistencia a alumnos desde sus hogares de la manera más
             divertida e innovadora.
